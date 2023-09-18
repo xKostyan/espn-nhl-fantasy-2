@@ -1,44 +1,5 @@
-espn_abbreviation_full = {
-    "G": "goals",
-    "A": "assist",
-    "+/-": "plus_minus",
-    "16": "points",
-    "PIM": "penalty_minutes",
-    "PPG": "power_play_goals",
-    "19": "power_play_assists",
-    "SHG": "short_handed_goals",
-    "SHA": "short_handed_assists",
-    "GWG": "game_winning_goals",
-    "FOW": "faceoff_wins",
-    "FOL": "faceoff_losses",
-    "25": "???",
-    "TTOI ?": "time_on_ice",
-    "ATOI": "average_time_on_ice",
-    "HAT": "hat_tricks",
-    "SOG": "shots_on_goal",
-    "30": "game_played",
-    "HIT": "hits",
-    "BLK": "blocks",
-    "DEF": "defensive_points",
-    "GP": "games_played",
-    "35": "???",
-    "36": "???",
-    "37": "???",
-    "PPP": "power_play_points",
-    "SHP": "short_handed_points",
-    "GS": "games_started",
-    "W": "wins",
-    "L": "losses",
-    "GA": "goals_against",
-    "SV": "saves",
-    "SO": "shutouts",
-    "OTL": "overtime_losses",
-    "MIN ?": "minutes_played",
-    "GAA": "goals_against_average",
-    "SV%": "save_percentage"
-}
-
-espn_abbreviation_short = {
+# this maps API value to sqlite table column name
+espn_to_sqlite_names = {
     "G": "G",
     "A": "A",
     "+/-": "P_M",
@@ -51,7 +12,7 @@ espn_abbreviation_short = {
     "GWG": "GWG",
     "FOW": "FOW",
     "FOL": "FOL",
-    "25": "???",
+    "25": "_25",
     "TTOI ?": "TTOI",
     "ATOI": "ATOI",
     "HAT": "HAT",
@@ -61,9 +22,9 @@ espn_abbreviation_short = {
     "BLK": "BLK",
     "DEF": "DEF",
     "GP": "GP",
-    "35": "???",
-    "36": "???",
-    "37": "???",
+    "35": "_35",
+    "36": "_36",
+    "37": "_37",
     "PPP": "PPP",
     "SHP": "SHP",
     "GS": "GS",
@@ -78,59 +39,67 @@ espn_abbreviation_short = {
     "SV%": "SVP"
 }
 
-sqlite_player_table = {
+# contains descriptions for the stats column names
+sqlite_column_descriptions = {
+    "G": "goals",
+    "A": "assist",
+    "P_M": "plus/minus",
+    "PTS": "points",
+    "PIM": "penalty minutes",
+    "PPG": "power play goals",
+    "PPA": "power play assists",
+    "SHG": "short handed goals",
+    "SHA": "short handed assists",
+    "GWG": "game winning goals",
+    "FOW": "face-off wins",
+    "FOL": "face-off losses",
+    "_25": "???",
+    "TTOI": "time on ice",
+    "ATOI": "average time on ice",
+    "HAT": "hat tricks",
+    "SOG": "shots_on_goal",
+    "HIT": "hits",
+    "BLK": "blocks",
+    "DEF": "defensemen points",
+    "GP": "games played",
+    "_35": "???",
+    "_36": "???",
+    "_37": "???",
+    "PPP": "power play points",
+    "SHP": "short handed points",
+    "GS": "games started",
+    "W": "wins",
+    "L": "losses",
+    "GA": "goals against",
+    "SV": "saves",
+    "SO": "shutouts",
+    "OTL": "overtime losses",
+    "MIN": "minutes played",
+    "GAA": "goals against average",
+    "SVP": "save percentage"
+}
+
+# defines player table schema for the sqlite database
+sqlite_players_table = {
     "id": "INTEGER PRIMARY KEY",
     "name": "TEXT",
     "active": "INTEGER",
-    "group": "TEXT",
-    "position": "TEXT",
+    "position_type": "TEXT",
+    "position": "TEXT"
+}
+
+# defines draft table schema for the sqlite database
+sqlite_players_draft = {
+    "id": "INTEGER PRIMARY KEY",
+    "year": "INTEGER",
     "draft_pick": "INTEGER",
     "draft_keeper": "INTEGER",
     "draft_price": "INTEGER",
     "draft_cap_percentage": "REAL"
 }
 
-sqllite_league_scorting_table = {
-    "G": "REAL",
-    "A": "REAL",
-    "+/-": "REAL",
-    "16": "REAL",
-    "PIM": "REAL",
-    "PPG": "REAL",
-    "19": "REAL",
-    "SHG": "REAL",
-    "SHA": "REAL",
-    "GWG": "REAL",
-    "FOW": "REAL",
-    "FOL": "REAL",
-    "25": "REAL",
-    "TTOI ?": "REAL",
-    "ATOI": "REAL",
-    "HAT": "REAL",
-    "SOG": "REAL",
-    "30": "REAL",
-    "HIT": "REAL",
-    "BLK": "REAL",
-    "DEF": "REAL",
-    "GP": "REAL",
-    "35": "REAL",
-    "36": "REAL",
-    "37": "REAL",
-    "PPP": "REAL",
-    "SHP": "REAL",
-    "GS": "REAL",
-    "W": "REAL",
-    "L": "REAL",
-    "GA": "REAL",
-    "SV": "REAL",
-    "SO": "REAL",
-    "OTL": "REAL",
-    "MIN ?": "REAL",
-    "GAA": "REAL",
-    "SV%": "REAL"
-}
-
-sqlite_skater_forwards_stats_table = {
+# defines skaters scoring table schema for the sqlite database
+sqlite_forwards_stats_table = {
     "id": "INTEGER PRIMARY KEY",
     "year": "INTEGER",
     "stats_type": "TEXT",
@@ -155,7 +124,8 @@ sqlite_skater_forwards_stats_table = {
     "BLK": "REAL"
 }
 
-sqlite_skater_defenceman_stats_table = {
+# defines defencemen scoring table schema for the sqlite database
+sqlite_defencemen_stats_table = {
     "id": "INTEGER PRIMARY KEY",
     "year": "INTEGER",
     "stats_type": "TEXT",
@@ -181,7 +151,8 @@ sqlite_skater_defenceman_stats_table = {
     "DEF": "REAL"
 }
 
-sqlite_goalie_stats_table = {
+# defines goalie scoring table schema for the sqlite database
+sqlite_goalies_stats_table = {
     "id": "INTEGER PRIMARY KEY",
     "year": "INTEGER",
     "stats_type": "TEXT",
