@@ -167,3 +167,9 @@ sqlite_goalies_stats_table = {
     "GAA": "REAL",
     "SVP": "REAL"
 }
+
+# defines years tracking table schema for the sqlite database
+sqlite_years_tracking_table = {
+    "year": "INTEGER",
+    "data_type": "TEXT"
+}
