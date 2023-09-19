@@ -46,11 +46,6 @@ def get_years(flag) -> list:
     return ret
 
 def main(league_id, full_history):
-    # kwargs = {
-    #     'league_id': _league_id,
-    #     'espn_s2': _espn_s2,
-    #     'swid': _swid
-    # }
 
     if exists(f'espn-data/{league_id}'):
         db = sqlite3.connect(f'espn-data/{league_id}/league.db')
@@ -59,8 +54,19 @@ def main(league_id, full_history):
         print(f'Unable to locate data for League_id: {league_id}. \nSetup with "init-new-league.py"')
         exit(-1)
     
-    years = get_years(args.begining_of_time)
+    # years = get_years(full_history)
+    # years = [2024, 2023, 2022, 2021, 2020, 2019]
+    years = [2023]
 
+    kwargs = {
+        'league_id': league_id,
+        'espn_s2': auth['espn_s2'],
+        'swid': auth['swid'],
+        'year': years[0]
+    }
+    league = League(**kwargs)
+    fa = league.free_agents(size=10000)
+    draft = league.espn_request.get_league_draft()
     pass
 
 if __name__ == '__main__':

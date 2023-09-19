@@ -92,6 +92,7 @@ def main():
     save_league_auth(data)
     init_db(data['league_id'])
     update_league_scoring(data)
+    # TODO use get-draft-data.py to get full draft data for the league and dump it into the DB
 
 
 if __name__ == '__main__':
