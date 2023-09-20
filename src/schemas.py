@@ -1,4 +1,5 @@
 # this maps API value to sqlite table column name
+# as well this chema is used to create 'scoring' table as this lists all statistics tracked for players
 espn_to_sqlite_names = {
     "G": "G",
     "A": "A",
@@ -41,6 +42,16 @@ espn_to_sqlite_names = {
 
 # contains descriptions for the stats column names
 sqlite_column_descriptions = {
+    "id": "player id",
+    "name": "player name",
+    "active": "flag to indicate if player is active",
+    "position_type": "player position type (Skater or Goalie)",
+    "position": "player position (Forward, Defencemen, Goalie)",
+    "year": "year",
+    "draft_pick": "draft pick #",
+    "draft_keeper": "flag to indicate if player was kept from previous year as a keeper",
+    "draft_price": "draft price",
+    "draft_cap_percentage": "draft price as a percentage of the total draft cap for that year",
     "G": "goals",
     "A": "assist",
     "P_M": "plus/minus",
@@ -90,43 +101,26 @@ sqlite_players_table = {
 
 # defines draft table schema for the sqlite database
 sqlite_players_draft = {
-    "id": "INTEGER PRIMARY KEY",
+    "id": "INTEGER",
     "year": "INTEGER",
     "draft_pick": "INTEGER",
     "draft_keeper": "INTEGER",
     "draft_price": "INTEGER",
-    "draft_cap_percentage": "REAL"
+    "draft_cap_percentage": "REAL",
+    "UNIQUE": "(id, year)",
+    "PRIMARY KEY": "(id, year)",
+    "FOREIGN KEY (id)": "REFERENCES players(id)",
+    "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
+}
+
+sqlite_draft_years = {
+    "year": "INTEGER PRIMARY KEY",
+    "draft_cap": "INTEGER"
 }
 
 # defines skaters scoring table schema for the sqlite database
 sqlite_forwards_stats_table = {
-    "id": "INTEGER PRIMARY KEY",
-    "year": "INTEGER",
-    "stats_type": "TEXT",
-    "G": "REAL",
-    "A": "REAL",
-    "P_M": "REAL",
-    "PTS": "REAL",
-    "PIM": "REAL",
-    "PPG": "REAL",
-    "PPA": "REAL",
-    "SHG": "REAL",
-    "SHA": "REAL",
-    "GWG": "REAL",
-    "FOW": "REAL",
-    "FOL": "REAL",
-    "TTOI": "REAL",
-    "ATOI": "REAL",
-    "HAT": "REAL",
-    "SOG": "REAL",
-    "GP": "REAL",
-    "HIT": "REAL",
-    "BLK": "REAL"
-}
-
-# defines defencemen scoring table schema for the sqlite database
-sqlite_defencemen_stats_table = {
-    "id": "INTEGER PRIMARY KEY",
+    "id": "INTEGER",
     "year": "INTEGER",
     "stats_type": "TEXT",
     "G": "REAL",
@@ -148,12 +142,42 @@ sqlite_defencemen_stats_table = {
     "GP": "REAL",
     "HIT": "REAL",
     "BLK": "REAL",
-    "DEF": "REAL"
+    "PRIMARY KEY": "(id, year, stats_type)",
+    "FOREIGN KEY (id)": "REFERENCES players(id)"
+}
+
+# defines defencemen scoring table schema for the sqlite database
+sqlite_defencemen_stats_table = {
+    "id": "INTEGER",
+    "year": "INTEGER",
+    "stats_type": "TEXT",
+    "G": "REAL",
+    "A": "REAL",
+    "P_M": "REAL",
+    "PTS": "REAL",
+    "PIM": "REAL",
+    "PPG": "REAL",
+    "PPA": "REAL",
+    "SHG": "REAL",
+    "SHA": "REAL",
+    "GWG": "REAL",
+    "FOW": "REAL",
+    "FOL": "REAL",
+    "TTOI": "REAL",
+    "ATOI": "REAL",
+    "HAT": "REAL",
+    "SOG": "REAL",
+    "GP": "REAL",
+    "HIT": "REAL",
+    "BLK": "REAL",
+    "DEF": "REAL",
+    "PRIMARY KEY": "(id, year, stats_type)",
+    "FOREIGN KEY (id)": "REFERENCES players(id)"
 }
 
 # defines goalie scoring table schema for the sqlite database
 sqlite_goalies_stats_table = {
-    "id": "INTEGER PRIMARY KEY",
+    "id": "INTEGER",
     "year": "INTEGER",
     "stats_type": "TEXT",
     "GS": "REAL",
@@ -165,7 +189,9 @@ sqlite_goalies_stats_table = {
     "OTL": "REAL",
     "MIN": "REAL",
     "GAA": "REAL",
-    "SVP": "REAL"
+    "SVP": "REAL",
+    "PRIMARY KEY": "(id, year, stats_type)",
+    "FOREIGN KEY (id)": "REFERENCES players(id)"
 }
 
 # defines years tracking table schema for the sqlite database
