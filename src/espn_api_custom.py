@@ -5,7 +5,7 @@ from espn_api.hockey.player import Player
 
 
 class League(espn_api.hockey.League):
-    def free_agents(self, week: int = None, size: int = 50, position: str = None, position_id: int = None, players_filter: list = []) \
+    def free_agents(self, week: int = None, size: int = 10000, position: str = None, position_id: int = None, players_filter: list = []) \
             -> list[espn_api.hockey.Player]:
         """
         Returns a List of players, based on filters

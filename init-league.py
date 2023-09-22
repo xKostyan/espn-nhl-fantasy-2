@@ -16,7 +16,7 @@ def init_db(league_id):
     cursor.execute(get_create_table_command('players_draft', schemas.sqlite_players_draft))
     cursor.execute(get_create_table_command('forwards_stats', schemas.sqlite_forwards_stats_table))
     cursor.execute(get_create_table_command('defencemen_stats', schemas.sqlite_defencemen_stats_table))
-    cursor.execute(get_create_table_command('goalie_stats', schemas.sqlite_goalies_stats_table))
+    cursor.execute(get_create_table_command('goalies_stats', schemas.sqlite_goalies_stats_table))
     cursor.execute(get_create_table_command('years_tracking', schemas.sqlite_years_tracking_table))
     cursor.execute(get_create_table_command('draft_years', schemas.sqlite_draft_years))
 
@@ -45,28 +45,30 @@ def input_detect(_prompt):
 
 
 def get_inputs():
+    # TODO uncomment
     league = dict()
-    league['league_name'] = input('League name: ')
-    league['league_id'] = int(input('League id (get it from browser address after you login): '))
+    # league['league_name'] = input('League name: ')
+    # league['league_id'] = int(input('League id (get it from browser address after you login): '))
+    league['league_id'] = 41610
     print()
-    print('Enter league credentials.')
-    print('espn_s2 and swid are used to authenticate with ESPN API. Access these values by logging into espn league, then "inspect page", ')
-    print('Application tab -> Storage -> Cookies -> "http://fantasy.espn.com". Find required values in the list. and paste them below.')
-    league['auth'] = dict()
-    league['auth']['espn_s2'] = input('espn_s2: ')
-    league['auth']['swid'] = input('swid: ')
-    print()
-    league['scoring'] = dict()
-    print('Enter league scoring for each category.')
-    print('If a category is not used, enter 0 or leave it empty.')
-    print('Make sure to align it with league setting on ESPN as some stat values are '
-          '"products of other stats" and dont have own scoring value.'
-          'For example FOL and FOW may not be used in your league so set those to 0'
-          'and PPP is a product of PPG and PPA so set PPP to 0 and PPG and PPA to values specific in your league.'
-          'Meaning if ESPN league settings, Scoring section list does not have a category, set it to 0.')
+    # print('Enter league credentials.')
+    # print('espn_s2 and swid are used to authenticate with ESPN API. Access these values by logging into espn league, then "inspect page", ')
+    # print('Application tab -> Storage -> Cookies -> "http://fantasy.espn.com". Find required values in the list. and paste them below.')
+    # league['auth'] = dict()
+    # league['auth']['espn_s2'] = input('espn_s2: ')
+    # league['auth']['swid'] = input('swid: ')
+    # print()
+    # league['scoring'] = dict()
+    # print('Enter league scoring for each category.')
+    # print('If a category is not used, enter 0 or leave it empty.')
+    # print('Make sure to align it with league setting on ESPN as some stat values are '
+    #       '"products of other stats" and dont have own scoring value.'
+    #       'For example FOL and FOW may not be used in your league so set those to 0'
+    #       'and PPP is a product of PPG and PPA so set PPP to 0 and PPG and PPA to values specific in your league.'
+    #       'Meaning if ESPN league settings, Scoring section list does not have a category, set it to 0.')
 
-    for key, value in schemas.espn_to_sqlite_names.items():
-        league['scoring'][value] = input_detect(f'{value:<5} {schemas.sqlite_column_descriptions[value]:<30}: ')
+    # for key, value in schemas.espn_to_sqlite_names.items():
+    #     league['scoring'][value] = input_detect(f'{value:<5} {schemas.sqlite_column_descriptions[value]:<30}: ')
 
     return league
 
@@ -92,9 +94,9 @@ def save_league_auth(league):
 
 def main():
     data = get_inputs()
-    save_league_auth(data)
+    # save_league_auth(data)
     init_db(data['league_id'])
-    update_league_scoring(data)
+    # update_league_scoring(data)
     # TODO use get-draft-data.py to get full draft data for the league and dump it into the DB
 
 
