@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang='en-us' xmlns='http://www.w3.org/1999/xhtml'  >
 <head>
-<title>Main Layout</title>
+<title>league&#45;db&#45;schema</title>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
 <link rel='shortcut icon' href='https://dbschema.com/img/favicons/favicon.ico'>
@@ -38,7 +38,7 @@ tr:nth-child(even) {
 
 <a name='layout1' style='position:sticky; top:0;'/><h4>Main Layout</h4>
 <div class='svgContainer'>
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='1104' height='1054' viewBox='0 0 1104 1054' >
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='1008' height='1454' viewBox='0 0 1008 1454' >
   <script type='text/ecmascript'>
   <![CDATA[
   function hghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','highlight');  }  }
@@ -262,27 +262,27 @@ tr:nth-child(even) {
   <marker id='Arrow' viewBox='0 0 8.00 8.00' refX='4.00' refY='4.00' markerWidth='8.00' markerHeight='8.00' orient='auto-start-reverse'>
     <path d='M 4.000,2.000 L 8.000,4.000 L 4.000,6.000 z' style='stroke-width:1;' class='filled'/>
   </marker>
-  <linearGradient id='tbg_C7F4BE' x1='0%' y1='0%' x2='0%' y2='100%' >
-     <stop offset='0%' stop-color='#FEFFFE' /> 
-     <stop offset='75%' stop-color='#E4FDDF' /> 
-     <stop offset='100%' stop-color='#C5FEBA' /> 
-  </linearGradient>
   <linearGradient id='tbg_BED3F4' x1='0%' y1='0%' x2='0%' y2='100%' >
      <stop offset='0%' stop-color='#FEFEFF' /> 
      <stop offset='75%' stop-color='#DFEAFD' /> 
      <stop offset='100%' stop-color='#BAD4FE' /> 
   </linearGradient>
+  <linearGradient id='tbg_3986C1' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#FEFEFF' /> 
+     <stop offset='75%' stop-color='#DFEFFD' /> 
+     <stop offset='100%' stop-color='#BAE0FE' /> 
+  </linearGradient>
 </defs>
 
 <!-- == Shape Colors == -->
 <!-- == Desktop == -->
-<rect x='1' y='1' width='1102' height='1052' rx='8' ry='8' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
-<rect x='1' y='1' width='1102' height='1052' rx='8' ry='8' style='fill:url(#layoutBgEval);' />
+<rect x='1' y='1' width='1006' height='1452' rx='8' ry='8' style='fill:url(#layoutBgA); stroke:#ccc; stroke-width:.7px; cursor:move;' />
+<rect x='1' y='1' width='1006' height='1452' rx='8' ry='8' style='fill:url(#layoutBgEval);' />
 
 <!-- == Legend == -->
 <g transform='translate(10,10)'>
   <rect x='10' y='10' width='310' height='70' rx='6' ry='6' style='fill:url(#legendGradient);filter:url(#shadow);'/> 
-  <use id='logo' x='20' y='40' xlink:href='#logo'><title>DbSchema Database Designer </title></use>  <text x='20' y='30' class='legendTitle' >Main Layout</text> 
+  <use id='logo' x='20' y='40' xlink:href='#logo'><title>DbSchema Database Designer </title></use>  <text x='20' y='30' class='legendTitle' >league-db-schema</text> 
   <text x='57' y='47' class='legendSubTitle'><tspan>Comments as mouse-over tips, zoom and pan.<title>Read column and table comments by hovering the columns and tables.
 Zoom with CTRL+whell mouse button, pan by dragging the diagram with the right-mouse button</title></tspan></text> 
   <a xlink:href='https%3A%2F%2Fdbschema.com'><text x='57' y='61' class='legendSubTitle'><tspan>by DbSchema.com - Wise Coders<title>DbSchema is an universal database designer.
@@ -290,344 +290,425 @@ DbSchema has a free Community Edition.</title></tspan></text></a>
 </g>
 
 <g transform='translate(0,110)'>
-<!-- == Group 'scoring' == -->
-<rect class='grp' style='fill:#ECF2FD;stroke:#717D91' x='784' y='61' width='288' height='674' />
-<text x='796' y='77' style='fill:#6680AC;'>scoring</text>
-<!-- == Group 'players' == -->
-<rect class='grp' style='fill:#EEFDEC;stroke:#769171' x='32' y='61' width='720' height='818' />
-<text x='44' y='77' style='fill:#71AC66;'>players</text>
-<!-- == Fk 'goalie_stats_FK_goalie_stats players' == -->
-<path id='goalie_stats_FK_goalie_stats players'  onmouseover="hghl(['goalie_stats_FK_goalie_stats players','Default.goalie_stats.id','Default.players.id'])" onmouseout="uhghl(['goalie_stats_FK_goalie_stats players','Default.goalie_stats.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 144,160L 192,160' >
-	<title>&#x1F517;  Foreign Key FK_goalie_stats players
-goalie_stats ref players ( id )</title>
-</path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 144,160L 192,160' ><title>&#x1F517;  Foreign Key FK_goalie_stats players
-goalie_stats ref players ( id )</title></path>
-<text x='153' y='155' transform='rotate(0 153,155)' class='relName'>id</text>
+<!-- == Group 'players data' == -->
+<rect class='grp' style='fill:#ECF2FD;stroke:#717D91' x='32' y='45' width='768' height='1234' />
+<text x='44' y='61' style='fill:#6680AC;'>players data</text>
 <!-- == Fk 'defencemen_stats_FK_defencemen_stats players' == -->
-<path id='defencemen_stats_FK_defencemen_stats players'  onmouseover="hghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','Default.players.id'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 224,432L 224,288' >
+<path id='defencemen_stats_FK_defencemen_stats players'  onmouseover="hghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','Default.players.id'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 336,752L 384,752' >
 	<title>&#x1F517;  Foreign Key FK_defencemen_stats players
 defencemen_stats ref players ( id )</title>
 </path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 224,432L 224,288' ><title>&#x1F517;  Foreign Key FK_defencemen_stats players
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 336,752L 384,752' ><title>&#x1F517;  Foreign Key FK_defencemen_stats players
 defencemen_stats ref players ( id )</title></path>
-<text x='227' y='430' transform='rotate(270 227,430)' class='relName'>id</text>
+<text x='345' y='747' transform='rotate(0 345,747)' class='relName'>id</text>
+<!-- == Fk 'defencemen_stats_FK_defencemen_stats draft_years' == -->
+<path id='defencemen_stats_FK_defencemen_stats draft_years'  onmouseover="hghl(['defencemen_stats_FK_defencemen_stats draft_years','Default.defencemen_stats.year','Default.draft_years.year'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats draft_years','Default.defencemen_stats.year','Default.draft_years.year'])" transform='translate(8,0)' class='unhighlight' d='M 320,720L 320,616Q 320,608 328,608L 528,608' >
+	<title>&#x1F517;  Foreign Key FK_defencemen_stats draft_years
+defencemen_stats ref draft_years ( year )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 320,720L 320,616Q 320,608 328,608L 528,608' ><title>&#x1F517;  Foreign Key FK_defencemen_stats draft_years
+defencemen_stats ref draft_years ( year )</title></path>
+<text x='323' y='718' transform='rotate(270 323,718)' class='relName'>year</text>
 <!-- == Fk 'forwards_stats_FK_forwards_stats players' == -->
-<path id='forwards_stats_FK_forwards_stats players'  onmouseover="hghl(['forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','Default.players.id'])" onmouseout="uhghl(['forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 304,432L 304,288' >
+<path id='forwards_stats_FK_forwards_stats players'  onmouseover="hghl(['forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','Default.players.id'])" onmouseout="uhghl(['forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 336,576L 408,576Q 416,576 416,584L 416,656' >
 	<title>&#x1F517;  Foreign Key FK_forwards_stats players
 forwards_stats ref players ( id )</title>
 </path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 304,432L 304,288' ><title>&#x1F517;  Foreign Key FK_forwards_stats players
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 336,576L 408,576Q 416,576 416,584L 416,656' ><title>&#x1F517;  Foreign Key FK_forwards_stats players
 forwards_stats ref players ( id )</title></path>
-<text x='307' y='430' transform='rotate(270 307,430)' class='relName'>id</text>
+<text x='345' y='571' transform='rotate(0 345,571)' class='relName'>id</text>
+<!-- == Fk 'forwards_stats_FK_forwards_stats draft_years' == -->
+<path id='forwards_stats_FK_forwards_stats draft_years'  onmouseover="hghl(['forwards_stats_FK_forwards_stats draft_years','Default.forwards_stats.year','Default.draft_years.year'])" onmouseout="uhghl(['forwards_stats_FK_forwards_stats draft_years','Default.forwards_stats.year','Default.draft_years.year'])" transform='translate(8,0)' class='unhighlight' d='M 336,560L 528,560' >
+	<title>&#x1F517;  Foreign Key FK_forwards_stats draft_years
+forwards_stats ref draft_years ( year )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 336,560L 528,560' ><title>&#x1F517;  Foreign Key FK_forwards_stats draft_years
+forwards_stats ref draft_years ( year )</title></path>
+<text x='345' y='555' transform='rotate(0 345,555)' class='relName'>year</text>
+<!-- == Fk 'goalies_stats_FK_goalies_stats players' == -->
+<path id='goalies_stats_FK_goalies_stats players'  onmouseover="hghl(['goalies_stats_FK_goalies_stats players','Default.goalies_stats.id','Default.players.id'])" onmouseout="uhghl(['goalies_stats_FK_goalies_stats players','Default.goalies_stats.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 176,672L 384,672' >
+	<title>&#x1F517;  Foreign Key FK_goalies_stats players
+goalies_stats ref players ( id )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 176,672L 384,672' ><title>&#x1F517;  Foreign Key FK_goalies_stats players
+goalies_stats ref players ( id )</title></path>
+<text x='185' y='667' transform='rotate(0 185,667)' class='relName'>id</text>
+<!-- == Fk 'goalies_stats_FK_goalies_stats draft_years' == -->
+<path id='goalies_stats_FK_goalies_stats draft_years'  onmouseover="hghl(['goalies_stats_FK_goalies_stats draft_years','Default.goalies_stats.year','Default.draft_years.year'])" onmouseout="uhghl(['goalies_stats_FK_goalies_stats draft_years','Default.goalies_stats.year','Default.draft_years.year'])" transform='translate(8,0)' class='unhighlight' d='M 176,624L 504,624Q 512,624 512,616L 512,600Q 512,592 520,592L 528,592' >
+	<title>&#x1F517;  Foreign Key FK_goalies_stats draft_years
+goalies_stats ref draft_years ( year )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 176,624L 504,624Q 512,624 512,616L 512,600Q 512,592 520,592L 528,592' ><title>&#x1F517;  Foreign Key FK_goalies_stats draft_years
+goalies_stats ref draft_years ( year )</title></path>
+<text x='185' y='619' transform='rotate(0 185,619)' class='relName'>year</text>
 <!-- == Fk 'players_draft_FK_players_draft players' == -->
-<path id='players_draft_FK_players_draft players'  onmouseover="hghl(['players_draft_FK_players_draft players','Default.players_draft.id','Default.players.id'])" onmouseout="uhghl(['players_draft_FK_players_draft players','Default.players_draft.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 400,176L 336,176' >
+<path id='players_draft_FK_players_draft players'  onmouseover="hghl(['players_draft_FK_players_draft players','Default.players_draft.id','Default.players.id'])" onmouseout="uhghl(['players_draft_FK_players_draft players','Default.players_draft.id','Default.players.id'])" transform='translate(8,0)' class='unhighlight' d='M 608,688L 544,688' >
 	<title>&#x1F517;  Foreign Key FK_players_draft players
 players_draft ref players ( id )</title>
 </path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 400,176L 336,176' ><title>&#x1F517;  Foreign Key FK_players_draft players
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 608,688L 544,688' ><title>&#x1F517;  Foreign Key FK_players_draft players
 players_draft ref players ( id )</title></path>
-<text x='399' y='171' transform='rotate(0 399,171)' class='relName'>id</text>
+<text x='607' y='683' transform='rotate(0 607,683)' class='relName'>id</text>
 <!-- == Fk 'players_draft_FK_players_draft draft_years' == -->
-<path id='players_draft_FK_players_draft draft_years'  onmouseover="hghl(['players_draft_FK_players_draft draft_years','Default.players_draft.year','Default.draft_years.year'])" onmouseout="uhghl(['players_draft_FK_players_draft draft_years','Default.players_draft.year','Default.draft_years.year'])" transform='translate(8,0)' class='unhighlight' d='M 576,176L 624,176' >
+<path id='players_draft_FK_players_draft draft_years'  onmouseover="hghl(['players_draft_FK_players_draft draft_years','Default.players_draft.year','Default.draft_years.year'])" onmouseout="uhghl(['players_draft_FK_players_draft draft_years','Default.players_draft.year','Default.draft_years.year'])" transform='translate(8,0)' class='unhighlight' d='M 640,672L 640,640' >
 	<title>&#x1F517;  Foreign Key FK_players_draft draft_years
 players_draft ref draft_years ( year )</title>
 </path>
-<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 576,176L 624,176' ><title>&#x1F517;  Foreign Key FK_players_draft draft_years
+<path transform='translate(8,0)' marker-start='url(#ZeroMore)' marker-end='url(#Arrow)'  class='dotted '  d='M 640,672L 640,640' ><title>&#x1F517;  Foreign Key FK_players_draft draft_years
 players_draft ref draft_years ( year )</title></path>
-<text x='585' y='171' transform='rotate(0 585,171)' class='relName'>year</text>
-<!-- == Table 'goalie_stats' == -->
-<rect id='depict_Default&#46;goalie&#95;stats' class='entity' style='stroke:#81B976' x='48' y='88' width='96' height='256' />
-<rect x='48' y='88' width='96' height='28' style='stroke-width:0; fill:#F2FAF1'/>
-<line class='topLine' style='stroke:#2C9817;' stroke-linecap='round' x1='48' y1='88' x2='144' y2='88'/>
-<a xlink:href='#Default.goalie_stats'><text x='59' y='107' >goalie&#95;stats</text><title>Table Default.goalie_stats</title></a>
-  <use id='unq' x='50' y='124' xlink:href='#unq'><title>&#x1F50D;  Unq pk_goalie_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.goalie_stats_id'><text id='Default&#46;goalie&#95;stats&#46;id' x='67' y='135' onmouseover="hghl(['goalie_stats_FK_goalie_stats players','Default.players.id'])" onmouseout="uhghl(['goalie_stats_FK_goalie_stats players','Default.players.id'])">id</text><title>&#10697;  id
+<text x='643' y='670' transform='rotate(270 643,670)' class='relName'>year</text>
+<!-- == Table 'defencemen_stats' == -->
+<rect id='depict_Default&#46;defencemen&#95;stats' class='entity' style='stroke:#768FB9' x='208' y='728' width='128' height='528' />
+<rect x='208' y='728' width='128' height='28' style='stroke-width:0; fill:#F1F4FA'/>
+<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='208' y1='728' x2='336' y2='728'/>
+<a xlink:href='#Default.defencemen_stats'><text x='217' y='747' >defencemen&#95;stats</text><title>Table Default.defencemen_stats</title></a>
+  <use id='unq' x='210' y='764' xlink:href='#unq'><title>&#x1F50D;  Unq pk_defencemen_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.defencemen_stats_id'><text id='Default&#46;defencemen&#95;stats&#46;id' x='227' y='775' onmouseover="hghl(['defencemen_stats_FK_defencemen_stats players','Default.players.id'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats players','Default.players.id'])">id</text><title>&#10697;  id
      integer
- &#8599; goalie_stats( id )</title></a>
-<a xlink:href='#Default.goalie_stats.id'><use id='fk' x='132' y='124' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
-  <use id='unq' x='50' y='140' xlink:href='#unq'><title>&#x1F50D;  Unq pk_goalie_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.goalie_stats_year'><text id='Default&#46;goalie&#95;stats&#46;year' x='67' y='151'>year</text><title>&#10697;  year
-     integer</title></a>
-<text x='141' y='148' text-anchor='end' class='colType'>&#35;</text>  <use id='unq' x='50' y='156' xlink:href='#unq'><title>&#x1F50D;  Unq pk_goalie_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.goalie_stats_stats_type'><text id='Default&#46;goalie&#95;stats&#46;stats&#95;type' x='67' y='167'>stats&#95;type</text><title>&#10697;  stats_type
+ &#8599; defencemen_stats( id )</title></a>
+<text x='320' y='776' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.defencemen_stats.id'><use id='fk' x='324' y='764' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
+  <use id='unq' x='210' y='780' xlink:href='#unq'><title>&#x1F50D;  Unq pk_defencemen_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.defencemen_stats_year'><text id='Default&#46;defencemen&#95;stats&#46;year' x='227' y='791' onmouseover="hghl(['defencemen_stats_FK_defencemen_stats draft_years','Default.draft_years.year'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats draft_years','Default.draft_years.year'])">year</text><title>&#10697;  year
+     integer
+ &#8599; defencemen_stats( year )</title></a>
+<text x='320' y='792' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.defencemen_stats.year'><use id='fk' x='324' y='780' xlink:href='#fk'/><title>&#x1F517;  References draft_years ( year ) </title></a>
+  <use id='unq' x='210' y='796' xlink:href='#unq'><title>&#x1F50D;  Unq pk_defencemen_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.defencemen_stats_stats_type'><text id='Default&#46;defencemen&#95;stats&#46;stats&#95;type' x='227' y='807'>stats&#95;type</text><title>&#10697;  stats_type
      text</title></a>
-<text x='141' y='164' text-anchor='end' class='colType'>t</text>  <a xlink:href='#Default.goalie_stats_GS'><text id='Default&#46;goalie&#95;stats&#46;GS' x='67' y='183'>GS</text><title>&#10697;  GS
+<text x='320' y='808' text-anchor='end' style='fill:#8698B5;stroke:0;'>TEXT</text>  <a xlink:href='#Default.defencemen_stats_A'><text id='Default&#46;defencemen&#95;stats&#46;A' x='227' y='823'>A</text><title>&#10697;  A
      real</title></a>
-<text x='141' y='180' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_W'><text id='Default&#46;goalie&#95;stats&#46;W' x='67' y='199'>W</text><title>&#10697;  W
+<text x='320' y='824' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats__36'><text id='Default&#46;defencemen&#95;stats&#46;&#95;36' x='227' y='839'>&#95;36</text><title>&#10697;  _36
      real</title></a>
-<text x='141' y='196' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_L'><text id='Default&#46;goalie&#95;stats&#46;L' x='67' y='215'>L</text><title>&#10697;  L
+<text x='320' y='840' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_SHP'><text id='Default&#46;defencemen&#95;stats&#46;SHP' x='227' y='855'>SHP</text><title>&#10697;  SHP
      real</title></a>
-<text x='141' y='212' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_GA'><text id='Default&#46;goalie&#95;stats&#46;GA' x='67' y='231'>GA</text><title>&#10697;  GA
+<text x='320' y='856' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_GWG'><text id='Default&#46;defencemen&#95;stats&#46;GWG' x='227' y='871'>GWG</text><title>&#10697;  GWG
      real</title></a>
-<text x='141' y='228' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_SV'><text id='Default&#46;goalie&#95;stats&#46;SV' x='67' y='247'>SV</text><title>&#10697;  SV
+<text x='320' y='872' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_BLK'><text id='Default&#46;defencemen&#95;stats&#46;BLK' x='227' y='887'>BLK</text><title>&#10697;  BLK
      real</title></a>
-<text x='141' y='244' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_SO'><text id='Default&#46;goalie&#95;stats&#46;SO' x='67' y='263'>SO</text><title>&#10697;  SO
+<text x='320' y='888' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats__25'><text id='Default&#46;defencemen&#95;stats&#46;&#95;25' x='227' y='903'>&#95;25</text><title>&#10697;  _25
      real</title></a>
-<text x='141' y='260' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_OTL'><text id='Default&#46;goalie&#95;stats&#46;OTL' x='67' y='279'>OTL</text><title>&#10697;  OTL
+<text x='320' y='904' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_PPG'><text id='Default&#46;defencemen&#95;stats&#46;PPG' x='227' y='919'>PPG</text><title>&#10697;  PPG
      real</title></a>
-<text x='141' y='276' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_MIN'><text id='Default&#46;goalie&#95;stats&#46;MIN' x='67' y='295'>MIN</text><title>&#10697;  MIN
+<text x='320' y='920' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_DEF'><text id='Default&#46;defencemen&#95;stats&#46;DEF' x='227' y='935'>DEF</text><title>&#10697;  DEF
      real</title></a>
-<text x='141' y='292' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_GAA'><text id='Default&#46;goalie&#95;stats&#46;GAA' x='67' y='311'>GAA</text><title>&#10697;  GAA
+<text x='320' y='936' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_TTOI'><text id='Default&#46;defencemen&#95;stats&#46;TTOI' x='227' y='951'>TTOI</text><title>&#10697;  TTOI
      real</title></a>
-<text x='141' y='308' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.goalie_stats_SVP'><text id='Default&#46;goalie&#95;stats&#46;SVP' x='67' y='327'>SVP</text><title>&#10697;  SVP
+<text x='320' y='952' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_SHA'><text id='Default&#46;defencemen&#95;stats&#46;SHA' x='227' y='967'>SHA</text><title>&#10697;  SHA
      real</title></a>
-<text x='141' y='324' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Table 'scoring' == -->
-<rect id='depict_Default&#46;scoring' class='entity' style='stroke:#768FB9' x='800' y='88' width='80' height='624' />
-<rect x='800' y='88' width='80' height='28' style='stroke-width:0; fill:#F1F4FA'/>
-<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='800' y1='88' x2='880' y2='88'/>
-<a xlink:href='#Default.scoring'><text x='816' y='107' >scoring</text><title>Table Default.scoring</title></a>
-  <a xlink:href='#Default.scoring_G'><text id='Default&#46;scoring&#46;G' x='819' y='135'>G</text><title>&#10697;  G
+<text x='320' y='968' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats__35'><text id='Default&#46;defencemen&#95;stats&#46;&#95;35' x='227' y='983'>&#95;35</text><title>&#10697;  _35
      real</title></a>
-<text x='877' y='132' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_A'><text id='Default&#46;scoring&#46;A' x='819' y='151'>A</text><title>&#10697;  A
+<text x='320' y='984' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_FOW'><text id='Default&#46;defencemen&#95;stats&#46;FOW' x='227' y='999'>FOW</text><title>&#10697;  FOW
      real</title></a>
-<text x='877' y='148' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_PIM'><text id='Default&#46;scoring&#46;PIM' x='819' y='167'>PIM</text><title>&#10697;  PIM
+<text x='320' y='1000' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_PTS'><text id='Default&#46;defencemen&#95;stats&#46;PTS' x='227' y='1015'>PTS</text><title>&#10697;  PTS
      real</title></a>
-<text x='877' y='164' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_PPG'><text id='Default&#46;scoring&#46;PPG' x='819' y='183'>PPG</text><title>&#10697;  PPG
+<text x='320' y='1016' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_ATOI'><text id='Default&#46;defencemen&#95;stats&#46;ATOI' x='227' y='1031'>ATOI</text><title>&#10697;  ATOI
      real</title></a>
-<text x='877' y='180' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_PPA'><text id='Default&#46;scoring&#46;PPA' x='819' y='199'>PPA</text><title>&#10697;  PPA
+<text x='320' y='1032' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_FOL'><text id='Default&#46;defencemen&#95;stats&#46;FOL' x='227' y='1047'>FOL</text><title>&#10697;  FOL
      real</title></a>
-<text x='877' y='196' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_SHG'><text id='Default&#46;scoring&#46;SHG' x='819' y='215'>SHG</text><title>&#10697;  SHG
+<text x='320' y='1048' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_PPA'><text id='Default&#46;defencemen&#95;stats&#46;PPA' x='227' y='1063'>PPA</text><title>&#10697;  PPA
      real</title></a>
-<text x='877' y='212' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_SHA'><text id='Default&#46;scoring&#46;SHA' x='819' y='231'>SHA</text><title>&#10697;  SHA
+<text x='320' y='1064' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_SHG'><text id='Default&#46;defencemen&#95;stats&#46;SHG' x='227' y='1079'>SHG</text><title>&#10697;  SHG
      real</title></a>
-<text x='877' y='228' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_GWG'><text id='Default&#46;scoring&#46;GWG' x='819' y='247'>GWG</text><title>&#10697;  GWG
+<text x='320' y='1080' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_SOG'><text id='Default&#46;defencemen&#95;stats&#46;SOG' x='227' y='1095'>SOG</text><title>&#10697;  SOG
      real</title></a>
-<text x='877' y='244' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_HAT'><text id='Default&#46;scoring&#46;HAT' x='819' y='263'>HAT</text><title>&#10697;  HAT
+<text x='320' y='1096' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_GP'><text id='Default&#46;defencemen&#95;stats&#46;GP' x='227' y='1111'>GP</text><title>&#10697;  GP
      real</title></a>
-<text x='877' y='260' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_SOG'><text id='Default&#46;scoring&#46;SOG' x='819' y='279'>SOG</text><title>&#10697;  SOG
+<text x='320' y='1112' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats__37'><text id='Default&#46;defencemen&#95;stats&#46;&#95;37' x='227' y='1127'>&#95;37</text><title>&#10697;  _37
      real</title></a>
-<text x='877' y='276' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_HIT'><text id='Default&#46;scoring&#46;HIT' x='819' y='295'>HIT</text><title>&#10697;  HIT
+<text x='320' y='1128' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_G'><text id='Default&#46;defencemen&#95;stats&#46;G' x='227' y='1143'>G</text><title>&#10697;  G
      real</title></a>
-<text x='877' y='292' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_BLK'><text id='Default&#46;scoring&#46;BLK' x='819' y='311'>BLK</text><title>&#10697;  BLK
+<text x='320' y='1144' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_PPP'><text id='Default&#46;defencemen&#95;stats&#46;PPP' x='227' y='1159'>PPP</text><title>&#10697;  PPP
      real</title></a>
-<text x='877' y='308' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_DEF'><text id='Default&#46;scoring&#46;DEF' x='819' y='327'>DEF</text><title>&#10697;  DEF
+<text x='320' y='1160' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_PIM'><text id='Default&#46;defencemen&#95;stats&#46;PIM' x='227' y='1175'>PIM</text><title>&#10697;  PIM
      real</title></a>
-<text x='877' y='324' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_FOW'><text id='Default&#46;scoring&#46;FOW' x='819' y='343'>FOW</text><title>&#10697;  FOW
+<text x='320' y='1176' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_HIT'><text id='Default&#46;defencemen&#95;stats&#46;HIT' x='227' y='1191'>HIT</text><title>&#10697;  HIT
      real</title></a>
-<text x='877' y='340' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_FOL'><text id='Default&#46;scoring&#46;FOL' x='819' y='359'>FOL</text><title>&#10697;  FOL
+<text x='320' y='1192' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_P_M'><text id='Default&#46;defencemen&#95;stats&#46;P&#95;M' x='227' y='1207'>P&#95;M</text><title>&#10697;  P_M
      real</title></a>
-<text x='877' y='356' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring__25'><text id='Default&#46;scoring&#46;&#95;25' x='819' y='375'>&#95;25</text><title>&#10697;  _25
+<text x='320' y='1208' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_HAT'><text id='Default&#46;defencemen&#95;stats&#46;HAT' x='227' y='1223'>HAT</text><title>&#10697;  HAT
      real</title></a>
-<text x='877' y='372' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_TTOI'><text id='Default&#46;scoring&#46;TTOI' x='819' y='391'>TTOI</text><title>&#10697;  TTOI
+<text x='320' y='1224' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.defencemen_stats_MIN'><text id='Default&#46;defencemen&#95;stats&#46;MIN' x='227' y='1239'>MIN</text><title>&#10697;  MIN
      real</title></a>
-<text x='877' y='388' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_ATOI'><text id='Default&#46;scoring&#46;ATOI' x='819' y='407'>ATOI</text><title>&#10697;  ATOI
-     real</title></a>
-<text x='877' y='404' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_GP'><text id='Default&#46;scoring&#46;GP' x='819' y='423'>GP</text><title>&#10697;  GP
-     real</title></a>
-<text x='877' y='420' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring__35'><text id='Default&#46;scoring&#46;&#95;35' x='819' y='439'>&#95;35</text><title>&#10697;  _35
-     real</title></a>
-<text x='877' y='436' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring__36'><text id='Default&#46;scoring&#46;&#95;36' x='819' y='455'>&#95;36</text><title>&#10697;  _36
-     real</title></a>
-<text x='877' y='452' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring__37'><text id='Default&#46;scoring&#46;&#95;37' x='819' y='471'>&#95;37</text><title>&#10697;  _37
-     real</title></a>
-<text x='877' y='468' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_P_M'><text id='Default&#46;scoring&#46;P&#95;M' x='819' y='487'>P&#95;M</text><title>&#10697;  P_M
-     real</title></a>
-<text x='877' y='484' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_PTS'><text id='Default&#46;scoring&#46;PTS' x='819' y='503'>PTS</text><title>&#10697;  PTS
-     real</title></a>
-<text x='877' y='500' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_PPP'><text id='Default&#46;scoring&#46;PPP' x='819' y='519'>PPP</text><title>&#10697;  PPP
-     real</title></a>
-<text x='877' y='516' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_SHP'><text id='Default&#46;scoring&#46;SHP' x='819' y='535'>SHP</text><title>&#10697;  SHP
-     real</title></a>
-<text x='877' y='532' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_GS'><text id='Default&#46;scoring&#46;GS' x='819' y='551'>GS</text><title>&#10697;  GS
-     real</title></a>
-<text x='877' y='548' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_W'><text id='Default&#46;scoring&#46;W' x='819' y='567'>W</text><title>&#10697;  W
-     real</title></a>
-<text x='877' y='564' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_L'><text id='Default&#46;scoring&#46;L' x='819' y='583'>L</text><title>&#10697;  L
-     real</title></a>
-<text x='877' y='580' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_GA'><text id='Default&#46;scoring&#46;GA' x='819' y='599'>GA</text><title>&#10697;  GA
-     real</title></a>
-<text x='877' y='596' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_SV'><text id='Default&#46;scoring&#46;SV' x='819' y='615'>SV</text><title>&#10697;  SV
-     real</title></a>
-<text x='877' y='612' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_SO'><text id='Default&#46;scoring&#46;SO' x='819' y='631'>SO</text><title>&#10697;  SO
-     real</title></a>
-<text x='877' y='628' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_OTL'><text id='Default&#46;scoring&#46;OTL' x='819' y='647'>OTL</text><title>&#10697;  OTL
-     real</title></a>
-<text x='877' y='644' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_MIN'><text id='Default&#46;scoring&#46;MIN' x='819' y='663'>MIN</text><title>&#10697;  MIN
-     real</title></a>
-<text x='877' y='660' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_GAA'><text id='Default&#46;scoring&#46;GAA' x='819' y='679'>GAA</text><title>&#10697;  GAA
-     real</title></a>
-<text x='877' y='676' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.scoring_SVP'><text id='Default&#46;scoring&#46;SVP' x='819' y='695'>SVP</text><title>&#10697;  SVP
-     real</title></a>
-<text x='877' y='692' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Table 'years_tracking' == -->
-<rect id='depict_Default&#46;years&#95;tracking' class='entity' style='stroke:#768FB9' x='960' y='88' width='96' height='80' />
-<rect x='960' y='88' width='96' height='28' style='stroke-width:0; fill:#F1F4FA'/>
-<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='960' y1='88' x2='1056' y2='88'/>
-<a xlink:href='#Default.years_tracking'><text x='964' y='107' >years&#95;tracking</text><title>Table Default.years_tracking</title></a>
-  <a xlink:href='#Default.years_tracking_year'><text id='Default&#46;years&#95;tracking&#46;year' x='979' y='135'>year</text><title>&#10697;  year
+<text x='320' y='1240' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>
+<!-- == Table 'draft_years' == -->
+<rect id='depict_Default&#46;draft&#95;years' class='entity' style='stroke:#768FB9' x='544' y='552' width='144' height='80' />
+<rect x='544' y='552' width='144' height='28' style='stroke-width:0; fill:#F1F4FA'/>
+<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='544' y1='552' x2='688' y2='552'/>
+<a xlink:href='#Default.draft_years'><text x='581' y='571' >draft&#95;years</text><title>Table Default.draft_years</title></a>
+  <use id='nn' x='546' y='589' xlink:href='#nn'/><use id='pk' x='546' y='588' xlink:href='#pk'><title>&#x1F511;  Pk pk_draft_years ( year ) </title></use><a xlink:href='#Default.draft_years_year'><text id='Default&#46;draft&#95;years&#46;year' x='563' y='599' onmouseover="hghl(['defencemen_stats_FK_defencemen_stats draft_years','Default.defencemen_stats.year','forwards_stats_FK_forwards_stats draft_years','Default.forwards_stats.year','goalies_stats_FK_goalies_stats draft_years','Default.goalies_stats.year','players_draft_FK_players_draft draft_years','Default.players_draft.year'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats draft_years','Default.defencemen_stats.year','forwards_stats_FK_forwards_stats draft_years','Default.forwards_stats.year','goalies_stats_FK_goalies_stats draft_years','Default.goalies_stats.year','players_draft_FK_players_draft draft_years','Default.players_draft.year'])">year</text><title>&#10697;  year
+     * integer
+ &#8601; defencemen_stats( year )
+ &#8601; forwards_stats( year )
+ &#8601; goalies_stats( year )
+ &#8601; players_draft( year )</title></a>
+<text x='672' y='600' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.draft_years.year'><use id='ref' x='676' y='588' xlink:href='#ref'/><title>&#x1F517;  Referred by defencemen_stats ( year ) 
+Referred by forwards_stats ( year ) 
+Referred by goalies_stats ( year ) 
+Referred by players_draft ( year ) </title></a>
+  <a xlink:href='#Default.draft_years_draft_cap'><text id='Default&#46;draft&#95;years&#46;draft&#95;cap' x='563' y='615'>draft&#95;cap</text><title>&#10697;  draft_cap
      integer</title></a>
-<text x='1053' y='132' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.years_tracking_data_type'><text id='Default&#46;years&#95;tracking&#46;data&#95;type' x='979' y='151'>data&#95;type</text><title>&#10697;  data_type
+<text x='672' y='616' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text>
+<!-- == Table 'forwards_stats' == -->
+<rect id='depict_Default&#46;forwards&#95;stats' class='entity' style='stroke:#768FB9' x='208' y='72' width='128' height='512' />
+<rect x='208' y='72' width='128' height='28' style='stroke-width:0; fill:#F1F4FA'/>
+<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='208' y1='72' x2='336' y2='72'/>
+<a xlink:href='#Default.forwards_stats'><text x='228' y='91' >forwards&#95;stats</text><title>Table Default.forwards_stats</title></a>
+  <use id='unq' x='210' y='108' xlink:href='#unq'><title>&#x1F50D;  Unq pk_forwards_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.forwards_stats_id'><text id='Default&#46;forwards&#95;stats&#46;id' x='227' y='119' onmouseover="hghl(['forwards_stats_FK_forwards_stats players','Default.players.id'])" onmouseout="uhghl(['forwards_stats_FK_forwards_stats players','Default.players.id'])">id</text><title>&#10697;  id
+     integer
+ &#8599; forwards_stats( id )</title></a>
+<text x='320' y='120' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.forwards_stats.id'><use id='fk' x='324' y='108' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
+  <use id='unq' x='210' y='124' xlink:href='#unq'><title>&#x1F50D;  Unq pk_forwards_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.forwards_stats_year'><text id='Default&#46;forwards&#95;stats&#46;year' x='227' y='135' onmouseover="hghl(['forwards_stats_FK_forwards_stats draft_years','Default.draft_years.year'])" onmouseout="uhghl(['forwards_stats_FK_forwards_stats draft_years','Default.draft_years.year'])">year</text><title>&#10697;  year
+     integer
+ &#8599; forwards_stats( year )</title></a>
+<text x='320' y='136' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.forwards_stats.year'><use id='fk' x='324' y='124' xlink:href='#fk'/><title>&#x1F517;  References draft_years ( year ) </title></a>
+  <use id='unq' x='210' y='140' xlink:href='#unq'><title>&#x1F50D;  Unq pk_forwards_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.forwards_stats_stats_type'><text id='Default&#46;forwards&#95;stats&#46;stats&#95;type' x='227' y='151'>stats&#95;type</text><title>&#10697;  stats_type
      text</title></a>
-<text x='1053' y='148' text-anchor='end' class='colType'>t</text>
+<text x='320' y='152' text-anchor='end' style='fill:#8698B5;stroke:0;'>TEXT</text>  <a xlink:href='#Default.forwards_stats_A'><text id='Default&#46;forwards&#95;stats&#46;A' x='227' y='167'>A</text><title>&#10697;  A
+     real</title></a>
+<text x='320' y='168' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats__36'><text id='Default&#46;forwards&#95;stats&#46;&#95;36' x='227' y='183'>&#95;36</text><title>&#10697;  _36
+     real</title></a>
+<text x='320' y='184' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_SHP'><text id='Default&#46;forwards&#95;stats&#46;SHP' x='227' y='199'>SHP</text><title>&#10697;  SHP
+     real</title></a>
+<text x='320' y='200' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_GWG'><text id='Default&#46;forwards&#95;stats&#46;GWG' x='227' y='215'>GWG</text><title>&#10697;  GWG
+     real</title></a>
+<text x='320' y='216' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_BLK'><text id='Default&#46;forwards&#95;stats&#46;BLK' x='227' y='231'>BLK</text><title>&#10697;  BLK
+     real</title></a>
+<text x='320' y='232' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats__25'><text id='Default&#46;forwards&#95;stats&#46;&#95;25' x='227' y='247'>&#95;25</text><title>&#10697;  _25
+     real</title></a>
+<text x='320' y='248' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_PPG'><text id='Default&#46;forwards&#95;stats&#46;PPG' x='227' y='263'>PPG</text><title>&#10697;  PPG
+     real</title></a>
+<text x='320' y='264' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_TTOI'><text id='Default&#46;forwards&#95;stats&#46;TTOI' x='227' y='279'>TTOI</text><title>&#10697;  TTOI
+     real</title></a>
+<text x='320' y='280' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_SHA'><text id='Default&#46;forwards&#95;stats&#46;SHA' x='227' y='295'>SHA</text><title>&#10697;  SHA
+     real</title></a>
+<text x='320' y='296' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats__35'><text id='Default&#46;forwards&#95;stats&#46;&#95;35' x='227' y='311'>&#95;35</text><title>&#10697;  _35
+     real</title></a>
+<text x='320' y='312' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_FOW'><text id='Default&#46;forwards&#95;stats&#46;FOW' x='227' y='327'>FOW</text><title>&#10697;  FOW
+     real</title></a>
+<text x='320' y='328' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_PTS'><text id='Default&#46;forwards&#95;stats&#46;PTS' x='227' y='343'>PTS</text><title>&#10697;  PTS
+     real</title></a>
+<text x='320' y='344' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_ATOI'><text id='Default&#46;forwards&#95;stats&#46;ATOI' x='227' y='359'>ATOI</text><title>&#10697;  ATOI
+     real</title></a>
+<text x='320' y='360' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_FOL'><text id='Default&#46;forwards&#95;stats&#46;FOL' x='227' y='375'>FOL</text><title>&#10697;  FOL
+     real</title></a>
+<text x='320' y='376' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_PPA'><text id='Default&#46;forwards&#95;stats&#46;PPA' x='227' y='391'>PPA</text><title>&#10697;  PPA
+     real</title></a>
+<text x='320' y='392' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_SHG'><text id='Default&#46;forwards&#95;stats&#46;SHG' x='227' y='407'>SHG</text><title>&#10697;  SHG
+     real</title></a>
+<text x='320' y='408' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_SOG'><text id='Default&#46;forwards&#95;stats&#46;SOG' x='227' y='423'>SOG</text><title>&#10697;  SOG
+     real</title></a>
+<text x='320' y='424' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_GP'><text id='Default&#46;forwards&#95;stats&#46;GP' x='227' y='439'>GP</text><title>&#10697;  GP
+     real</title></a>
+<text x='320' y='440' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats__37'><text id='Default&#46;forwards&#95;stats&#46;&#95;37' x='227' y='455'>&#95;37</text><title>&#10697;  _37
+     real</title></a>
+<text x='320' y='456' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_G'><text id='Default&#46;forwards&#95;stats&#46;G' x='227' y='471'>G</text><title>&#10697;  G
+     real</title></a>
+<text x='320' y='472' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_PPP'><text id='Default&#46;forwards&#95;stats&#46;PPP' x='227' y='487'>PPP</text><title>&#10697;  PPP
+     real</title></a>
+<text x='320' y='488' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_PIM'><text id='Default&#46;forwards&#95;stats&#46;PIM' x='227' y='503'>PIM</text><title>&#10697;  PIM
+     real</title></a>
+<text x='320' y='504' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_HIT'><text id='Default&#46;forwards&#95;stats&#46;HIT' x='227' y='519'>HIT</text><title>&#10697;  HIT
+     real</title></a>
+<text x='320' y='520' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_P_M'><text id='Default&#46;forwards&#95;stats&#46;P&#95;M' x='227' y='535'>P&#95;M</text><title>&#10697;  P_M
+     real</title></a>
+<text x='320' y='536' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_HAT'><text id='Default&#46;forwards&#95;stats&#46;HAT' x='227' y='551'>HAT</text><title>&#10697;  HAT
+     real</title></a>
+<text x='320' y='552' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.forwards_stats_MIN'><text id='Default&#46;forwards&#95;stats&#46;MIN' x='227' y='567'>MIN</text><title>&#10697;  MIN
+     real</title></a>
+<text x='320' y='568' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>
+<!-- == Table 'goalies_stats' == -->
+<rect id='depict_Default&#46;goalies&#95;stats' class='entity' style='stroke:#768FB9' x='48' y='424' width='128' height='496' />
+<rect x='48' y='424' width='128' height='28' style='stroke-width:0; fill:#F1F4FA'/>
+<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='48' y1='424' x2='176' y2='424'/>
+<a xlink:href='#Default.goalies_stats'><text x='72' y='443' >goalies&#95;stats</text><title>Table Default.goalies_stats</title></a>
+  <use id='unq' x='50' y='460' xlink:href='#unq'><title>&#x1F50D;  Unq pk_goalies_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.goalies_stats_id'><text id='Default&#46;goalies&#95;stats&#46;id' x='67' y='471' onmouseover="hghl(['goalies_stats_FK_goalies_stats players','Default.players.id'])" onmouseout="uhghl(['goalies_stats_FK_goalies_stats players','Default.players.id'])">id</text><title>&#10697;  id
+     integer
+ &#8599; goalies_stats( id )</title></a>
+<text x='160' y='472' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.goalies_stats.id'><use id='fk' x='164' y='460' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
+  <use id='unq' x='50' y='476' xlink:href='#unq'><title>&#x1F50D;  Unq pk_goalies_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.goalies_stats_year'><text id='Default&#46;goalies&#95;stats&#46;year' x='67' y='487' onmouseover="hghl(['goalies_stats_FK_goalies_stats draft_years','Default.draft_years.year'])" onmouseout="uhghl(['goalies_stats_FK_goalies_stats draft_years','Default.draft_years.year'])">year</text><title>&#10697;  year
+     integer
+ &#8599; goalies_stats( year )</title></a>
+<text x='160' y='488' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.goalies_stats.year'><use id='fk' x='164' y='476' xlink:href='#fk'/><title>&#x1F517;  References draft_years ( year ) </title></a>
+  <use id='unq' x='50' y='492' xlink:href='#unq'><title>&#x1F50D;  Unq pk_goalies_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.goalies_stats_stats_type'><text id='Default&#46;goalies&#95;stats&#46;stats&#95;type' x='67' y='503'>stats&#95;type</text><title>&#10697;  stats_type
+     text</title></a>
+<text x='160' y='504' text-anchor='end' style='fill:#8698B5;stroke:0;'>TEXT</text>  <a xlink:href='#Default.goalies_stats_SV'><text id='Default&#46;goalies&#95;stats&#46;SV' x='67' y='519'>SV</text><title>&#10697;  SV
+     real</title></a>
+<text x='160' y='520' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats__36'><text id='Default&#46;goalies&#95;stats&#46;&#95;36' x='67' y='535'>&#95;36</text><title>&#10697;  _36
+     real</title></a>
+<text x='160' y='536' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_W'><text id='Default&#46;goalies&#95;stats&#46;W' x='67' y='551'>W</text><title>&#10697;  W
+     real</title></a>
+<text x='160' y='552' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_SHP'><text id='Default&#46;goalies&#95;stats&#46;SHP' x='67' y='567'>SHP</text><title>&#10697;  SHP
+     real</title></a>
+<text x='160' y='568' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_SO'><text id='Default&#46;goalies&#95;stats&#46;SO' x='67' y='583'>SO</text><title>&#10697;  SO
+     real</title></a>
+<text x='160' y='584' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_SVP'><text id='Default&#46;goalies&#95;stats&#46;SVP' x='67' y='599'>SVP</text><title>&#10697;  SVP
+     real</title></a>
+<text x='160' y='600' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats__12'><text id='Default&#46;goalies&#95;stats&#46;&#95;12' x='67' y='615'>&#95;12</text><title>&#10697;  _12
+     real</title></a>
+<text x='160' y='616' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_MIN'><text id='Default&#46;goalies&#95;stats&#46;MIN' x='67' y='631'>MIN</text><title>&#10697;  MIN
+     real</title></a>
+<text x='160' y='632' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_GA'><text id='Default&#46;goalies&#95;stats&#46;GA' x='67' y='647'>GA</text><title>&#10697;  GA
+     real</title></a>
+<text x='160' y='648' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats__35'><text id='Default&#46;goalies&#95;stats&#46;&#95;35' x='67' y='663'>&#95;35</text><title>&#10697;  _35
+     real</title></a>
+<text x='160' y='664' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_L'><text id='Default&#46;goalies&#95;stats&#46;L' x='67' y='679'>L</text><title>&#10697;  L
+     real</title></a>
+<text x='160' y='680' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_GS'><text id='Default&#46;goalies&#95;stats&#46;GS' x='67' y='695'>GS</text><title>&#10697;  GS
+     real</title></a>
+<text x='160' y='696' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_GP'><text id='Default&#46;goalies&#95;stats&#46;GP' x='67' y='711'>GP</text><title>&#10697;  GP
+     real</title></a>
+<text x='160' y='712' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats__37'><text id='Default&#46;goalies&#95;stats&#46;&#95;37' x='67' y='727'>&#95;37</text><title>&#10697;  _37
+     real</title></a>
+<text x='160' y='728' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_PPP'><text id='Default&#46;goalies&#95;stats&#46;PPP' x='67' y='743'>PPP</text><title>&#10697;  PPP
+     real</title></a>
+<text x='160' y='744' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_GAA'><text id='Default&#46;goalies&#95;stats&#46;GAA' x='67' y='759'>GAA</text><title>&#10697;  GAA
+     real</title></a>
+<text x='160' y='760' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_OTL'><text id='Default&#46;goalies&#95;stats&#46;OTL' x='67' y='775'>OTL</text><title>&#10697;  OTL
+     real</title></a>
+<text x='160' y='776' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_SA'><text id='Default&#46;goalies&#95;stats&#46;SA' x='67' y='791'>SA</text><title>&#10697;  SA
+     real</title></a>
+<text x='160' y='792' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats__99'><text id='Default&#46;goalies&#95;stats&#46;&#95;99' x='67' y='807'>&#95;99</text><title>&#10697;  _99
+     real</title></a>
+<text x='160' y='808' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_TTOI'><text id='Default&#46;goalies&#95;stats&#46;TTOI' x='67' y='823'>TTOI</text><title>&#10697;  TTOI
+     real</title></a>
+<text x='160' y='824' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats__25'><text id='Default&#46;goalies&#95;stats&#46;&#95;25' x='67' y='839'>&#95;25</text><title>&#10697;  _25
+     real</title></a>
+<text x='160' y='840' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_ATOI'><text id='Default&#46;goalies&#95;stats&#46;ATOI' x='67' y='855'>ATOI</text><title>&#10697;  ATOI
+     real</title></a>
+<text x='160' y='856' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats__5'><text id='Default&#46;goalies&#95;stats&#46;&#95;5' x='67' y='871'>&#95;5</text><title>&#10697;  _5
+     real</title></a>
+<text x='160' y='872' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_A'><text id='Default&#46;goalies&#95;stats&#46;A' x='67' y='887'>A</text><title>&#10697;  A
+     real</title></a>
+<text x='160' y='888' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.goalies_stats_PTS'><text id='Default&#46;goalies&#95;stats&#46;PTS' x='67' y='903'>PTS</text><title>&#10697;  PTS
+     real</title></a>
+<text x='160' y='904' text-anchor='end' style='fill:#8698B5;stroke:0;'>REAL</text>
 <!-- == Table 'players' == -->
-<rect id='depict_Default&#46;players' class='entity' style='stroke:#81B976' x='208' y='152' width='128' height='128' />
-<rect x='208' y='152' width='128' height='28' style='stroke-width:0; fill:#F2FAF1'/>
-<line class='topLine' style='stroke:#2C9817;' stroke-linecap='round' x1='208' y1='152' x2='336' y2='152'/>
-<a xlink:href='#Default.players'><text x='248' y='171' >players</text><title>Table Default.players</title></a>
-  <use id='nn' x='210' y='189' xlink:href='#nn'/><use id='pk' x='210' y='188' xlink:href='#pk'><title>&#x1F511;  Pk pk_players ( id ) </title></use><a xlink:href='#Default.players_id'><text id='Default&#46;players&#46;id' x='227' y='199' onmouseover="hghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','goalie_stats_FK_goalie_stats players','Default.goalie_stats.id','players_draft_FK_players_draft players','Default.players_draft.id'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','goalie_stats_FK_goalie_stats players','Default.goalie_stats.id','players_draft_FK_players_draft players','Default.players_draft.id'])">id</text><title>&#10697;  id
+<rect id='depict_Default&#46;players' class='entity' style='stroke:#768FB9' x='400' y='664' width='144' height='128' />
+<rect x='400' y='664' width='144' height='28' style='stroke-width:0; fill:#F1F4FA'/>
+<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='400' y1='664' x2='544' y2='664'/>
+<a xlink:href='#Default.players'><text x='448' y='683' >players</text><title>Table Default.players</title></a>
+  <use id='nn' x='402' y='701' xlink:href='#nn'/><use id='pk' x='402' y='700' xlink:href='#pk'><title>&#x1F511;  Pk pk_players ( id ) </title></use><a xlink:href='#Default.players_id'><text id='Default&#46;players&#46;id' x='419' y='711' onmouseover="hghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','goalies_stats_FK_goalies_stats players','Default.goalies_stats.id','players_draft_FK_players_draft players','Default.players_draft.id'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats players','Default.defencemen_stats.id','forwards_stats_FK_forwards_stats players','Default.forwards_stats.id','goalies_stats_FK_goalies_stats players','Default.goalies_stats.id','players_draft_FK_players_draft players','Default.players_draft.id'])">id</text><title>&#10697;  id
      * integer
  &#8601; defencemen_stats( id )
  &#8601; forwards_stats( id )
- &#8601; goalie_stats( id )
+ &#8601; goalies_stats( id )
  &#8601; players_draft( id )</title></a>
-<a xlink:href='#Default.players.id'><use id='ref' x='324' y='188' xlink:href='#ref'/><title>&#x1F517;  Referred by defencemen_stats ( id ) 
+<text x='528' y='712' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.players.id'><use id='ref' x='532' y='700' xlink:href='#ref'/><title>&#x1F517;  Referred by defencemen_stats ( id ) 
 Referred by forwards_stats ( id ) 
-Referred by goalie_stats ( id ) 
+Referred by goalies_stats ( id ) 
 Referred by players_draft ( id ) </title></a>
-  <a xlink:href='#Default.players_name'><text id='Default&#46;players&#46;name' x='227' y='215'>name</text><title>&#10697;  name
+  <a xlink:href='#Default.players_name'><text id='Default&#46;players&#46;name' x='419' y='727'>name</text><title>&#10697;  name
      text</title></a>
-<text x='333' y='212' text-anchor='end' class='colType'>t</text>  <a xlink:href='#Default.players_active'><text id='Default&#46;players&#46;active' x='227' y='231'>active</text><title>&#10697;  active
+<text x='528' y='728' text-anchor='end' style='fill:#8698B5;stroke:0;'>TEXT</text>  <a xlink:href='#Default.players_active'><text id='Default&#46;players&#46;active' x='419' y='743'>active</text><title>&#10697;  active
      integer</title></a>
-<text x='333' y='228' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.players_position_type'><text id='Default&#46;players&#46;position&#95;type' x='227' y='247'>position&#95;type</text><title>&#10697;  position_type
+<text x='528' y='744' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text>  <a xlink:href='#Default.players_position_type'><text id='Default&#46;players&#46;position&#95;type' x='419' y='759'>position&#95;type</text><title>&#10697;  position_type
      text</title></a>
-<text x='333' y='244' text-anchor='end' class='colType'>t</text>  <a xlink:href='#Default.players_position'><text id='Default&#46;players&#46;position' x='227' y='263'>position</text><title>&#10697;  position
+<text x='528' y='760' text-anchor='end' style='fill:#8698B5;stroke:0;'>TEXT</text>  <a xlink:href='#Default.players_position'><text id='Default&#46;players&#46;position' x='419' y='775'>position</text><title>&#10697;  position
      text</title></a>
-<text x='333' y='260' text-anchor='end' class='colType'>t</text>
-<!-- == Table 'defencemen_stats' == -->
-<rect id='depict_Default&#46;defencemen&#95;stats' class='entity' style='stroke:#81B976' x='128' y='440' width='128' height='416' />
-<rect x='128' y='440' width='128' height='28' style='stroke-width:0; fill:#F2FAF1'/>
-<line class='topLine' style='stroke:#2C9817;' stroke-linecap='round' x1='128' y1='440' x2='256' y2='440'/>
-<a xlink:href='#Default.defencemen_stats'><text x='137' y='459' >defencemen&#95;stats</text><title>Table Default.defencemen_stats</title></a>
-  <use id='unq' x='130' y='476' xlink:href='#unq'><title>&#x1F50D;  Unq pk_defencemen_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.defencemen_stats_id'><text id='Default&#46;defencemen&#95;stats&#46;id' x='147' y='487' onmouseover="hghl(['defencemen_stats_FK_defencemen_stats players','Default.players.id'])" onmouseout="uhghl(['defencemen_stats_FK_defencemen_stats players','Default.players.id'])">id</text><title>&#10697;  id
-     integer
- &#8599; defencemen_stats( id )</title></a>
-<a xlink:href='#Default.defencemen_stats.id'><use id='fk' x='244' y='476' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
-  <use id='unq' x='130' y='492' xlink:href='#unq'><title>&#x1F50D;  Unq pk_defencemen_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.defencemen_stats_year'><text id='Default&#46;defencemen&#95;stats&#46;year' x='147' y='503'>year</text><title>&#10697;  year
-     integer</title></a>
-<text x='253' y='500' text-anchor='end' class='colType'>&#35;</text>  <use id='unq' x='130' y='508' xlink:href='#unq'><title>&#x1F50D;  Unq pk_defencemen_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.defencemen_stats_stats_type'><text id='Default&#46;defencemen&#95;stats&#46;stats&#95;type' x='147' y='519'>stats&#95;type</text><title>&#10697;  stats_type
-     text</title></a>
-<text x='253' y='516' text-anchor='end' class='colType'>t</text>  <a xlink:href='#Default.defencemen_stats_G'><text id='Default&#46;defencemen&#95;stats&#46;G' x='147' y='535'>G</text><title>&#10697;  G
-     real</title></a>
-<text x='253' y='532' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_A'><text id='Default&#46;defencemen&#95;stats&#46;A' x='147' y='551'>A</text><title>&#10697;  A
-     real</title></a>
-<text x='253' y='548' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_P_M'><text id='Default&#46;defencemen&#95;stats&#46;P&#95;M' x='147' y='567'>P&#95;M</text><title>&#10697;  P_M
-     real</title></a>
-<text x='253' y='564' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_PTS'><text id='Default&#46;defencemen&#95;stats&#46;PTS' x='147' y='583'>PTS</text><title>&#10697;  PTS
-     real</title></a>
-<text x='253' y='580' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_PIM'><text id='Default&#46;defencemen&#95;stats&#46;PIM' x='147' y='599'>PIM</text><title>&#10697;  PIM
-     real</title></a>
-<text x='253' y='596' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_PPG'><text id='Default&#46;defencemen&#95;stats&#46;PPG' x='147' y='615'>PPG</text><title>&#10697;  PPG
-     real</title></a>
-<text x='253' y='612' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_PPA'><text id='Default&#46;defencemen&#95;stats&#46;PPA' x='147' y='631'>PPA</text><title>&#10697;  PPA
-     real</title></a>
-<text x='253' y='628' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_SHG'><text id='Default&#46;defencemen&#95;stats&#46;SHG' x='147' y='647'>SHG</text><title>&#10697;  SHG
-     real</title></a>
-<text x='253' y='644' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_SHA'><text id='Default&#46;defencemen&#95;stats&#46;SHA' x='147' y='663'>SHA</text><title>&#10697;  SHA
-     real</title></a>
-<text x='253' y='660' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_GWG'><text id='Default&#46;defencemen&#95;stats&#46;GWG' x='147' y='679'>GWG</text><title>&#10697;  GWG
-     real</title></a>
-<text x='253' y='676' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_FOW'><text id='Default&#46;defencemen&#95;stats&#46;FOW' x='147' y='695'>FOW</text><title>&#10697;  FOW
-     real</title></a>
-<text x='253' y='692' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_FOL'><text id='Default&#46;defencemen&#95;stats&#46;FOL' x='147' y='711'>FOL</text><title>&#10697;  FOL
-     real</title></a>
-<text x='253' y='708' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_TTOI'><text id='Default&#46;defencemen&#95;stats&#46;TTOI' x='147' y='727'>TTOI</text><title>&#10697;  TTOI
-     real</title></a>
-<text x='253' y='724' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_ATOI'><text id='Default&#46;defencemen&#95;stats&#46;ATOI' x='147' y='743'>ATOI</text><title>&#10697;  ATOI
-     real</title></a>
-<text x='253' y='740' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_HAT'><text id='Default&#46;defencemen&#95;stats&#46;HAT' x='147' y='759'>HAT</text><title>&#10697;  HAT
-     real</title></a>
-<text x='253' y='756' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_SOG'><text id='Default&#46;defencemen&#95;stats&#46;SOG' x='147' y='775'>SOG</text><title>&#10697;  SOG
-     real</title></a>
-<text x='253' y='772' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_GP'><text id='Default&#46;defencemen&#95;stats&#46;GP' x='147' y='791'>GP</text><title>&#10697;  GP
-     real</title></a>
-<text x='253' y='788' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_HIT'><text id='Default&#46;defencemen&#95;stats&#46;HIT' x='147' y='807'>HIT</text><title>&#10697;  HIT
-     real</title></a>
-<text x='253' y='804' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_BLK'><text id='Default&#46;defencemen&#95;stats&#46;BLK' x='147' y='823'>BLK</text><title>&#10697;  BLK
-     real</title></a>
-<text x='253' y='820' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.defencemen_stats_DEF'><text id='Default&#46;defencemen&#95;stats&#46;DEF' x='147' y='839'>DEF</text><title>&#10697;  DEF
-     real</title></a>
-<text x='253' y='836' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Table 'forwards_stats' == -->
-<rect id='depict_Default&#46;forwards&#95;stats' class='entity' style='stroke:#81B976' x='288' y='440' width='96' height='400' />
-<rect x='288' y='440' width='96' height='28' style='stroke-width:0; fill:#F2FAF1'/>
-<line class='topLine' style='stroke:#2C9817;' stroke-linecap='round' x1='288' y1='440' x2='384' y2='440'/>
-<a xlink:href='#Default.forwards_stats'><text x='292' y='459' >forwards&#95;stats</text><title>Table Default.forwards_stats</title></a>
-  <use id='unq' x='290' y='476' xlink:href='#unq'><title>&#x1F50D;  Unq pk_forwards_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.forwards_stats_id'><text id='Default&#46;forwards&#95;stats&#46;id' x='307' y='487' onmouseover="hghl(['forwards_stats_FK_forwards_stats players','Default.players.id'])" onmouseout="uhghl(['forwards_stats_FK_forwards_stats players','Default.players.id'])">id</text><title>&#10697;  id
-     integer
- &#8599; forwards_stats( id )</title></a>
-<a xlink:href='#Default.forwards_stats.id'><use id='fk' x='372' y='476' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
-  <use id='unq' x='290' y='492' xlink:href='#unq'><title>&#x1F50D;  Unq pk_forwards_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.forwards_stats_year'><text id='Default&#46;forwards&#95;stats&#46;year' x='307' y='503'>year</text><title>&#10697;  year
-     integer</title></a>
-<text x='381' y='500' text-anchor='end' class='colType'>&#35;</text>  <use id='unq' x='290' y='508' xlink:href='#unq'><title>&#x1F50D;  Unq pk_forwards_stats ( id, year, stats_type ) </title></use><a xlink:href='#Default.forwards_stats_stats_type'><text id='Default&#46;forwards&#95;stats&#46;stats&#95;type' x='307' y='519'>stats&#95;type</text><title>&#10697;  stats_type
-     text</title></a>
-<text x='381' y='516' text-anchor='end' class='colType'>t</text>  <a xlink:href='#Default.forwards_stats_G'><text id='Default&#46;forwards&#95;stats&#46;G' x='307' y='535'>G</text><title>&#10697;  G
-     real</title></a>
-<text x='381' y='532' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_A'><text id='Default&#46;forwards&#95;stats&#46;A' x='307' y='551'>A</text><title>&#10697;  A
-     real</title></a>
-<text x='381' y='548' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_P_M'><text id='Default&#46;forwards&#95;stats&#46;P&#95;M' x='307' y='567'>P&#95;M</text><title>&#10697;  P_M
-     real</title></a>
-<text x='381' y='564' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_PTS'><text id='Default&#46;forwards&#95;stats&#46;PTS' x='307' y='583'>PTS</text><title>&#10697;  PTS
-     real</title></a>
-<text x='381' y='580' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_PIM'><text id='Default&#46;forwards&#95;stats&#46;PIM' x='307' y='599'>PIM</text><title>&#10697;  PIM
-     real</title></a>
-<text x='381' y='596' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_PPG'><text id='Default&#46;forwards&#95;stats&#46;PPG' x='307' y='615'>PPG</text><title>&#10697;  PPG
-     real</title></a>
-<text x='381' y='612' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_PPA'><text id='Default&#46;forwards&#95;stats&#46;PPA' x='307' y='631'>PPA</text><title>&#10697;  PPA
-     real</title></a>
-<text x='381' y='628' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_SHG'><text id='Default&#46;forwards&#95;stats&#46;SHG' x='307' y='647'>SHG</text><title>&#10697;  SHG
-     real</title></a>
-<text x='381' y='644' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_SHA'><text id='Default&#46;forwards&#95;stats&#46;SHA' x='307' y='663'>SHA</text><title>&#10697;  SHA
-     real</title></a>
-<text x='381' y='660' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_GWG'><text id='Default&#46;forwards&#95;stats&#46;GWG' x='307' y='679'>GWG</text><title>&#10697;  GWG
-     real</title></a>
-<text x='381' y='676' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_FOW'><text id='Default&#46;forwards&#95;stats&#46;FOW' x='307' y='695'>FOW</text><title>&#10697;  FOW
-     real</title></a>
-<text x='381' y='692' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_FOL'><text id='Default&#46;forwards&#95;stats&#46;FOL' x='307' y='711'>FOL</text><title>&#10697;  FOL
-     real</title></a>
-<text x='381' y='708' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_TTOI'><text id='Default&#46;forwards&#95;stats&#46;TTOI' x='307' y='727'>TTOI</text><title>&#10697;  TTOI
-     real</title></a>
-<text x='381' y='724' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_ATOI'><text id='Default&#46;forwards&#95;stats&#46;ATOI' x='307' y='743'>ATOI</text><title>&#10697;  ATOI
-     real</title></a>
-<text x='381' y='740' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_HAT'><text id='Default&#46;forwards&#95;stats&#46;HAT' x='307' y='759'>HAT</text><title>&#10697;  HAT
-     real</title></a>
-<text x='381' y='756' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_SOG'><text id='Default&#46;forwards&#95;stats&#46;SOG' x='307' y='775'>SOG</text><title>&#10697;  SOG
-     real</title></a>
-<text x='381' y='772' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_GP'><text id='Default&#46;forwards&#95;stats&#46;GP' x='307' y='791'>GP</text><title>&#10697;  GP
-     real</title></a>
-<text x='381' y='788' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_HIT'><text id='Default&#46;forwards&#95;stats&#46;HIT' x='307' y='807'>HIT</text><title>&#10697;  HIT
-     real</title></a>
-<text x='381' y='804' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.forwards_stats_BLK'><text id='Default&#46;forwards&#95;stats&#46;BLK' x='307' y='823'>BLK</text><title>&#10697;  BLK
-     real</title></a>
-<text x='381' y='820' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Table 'draft_years' == -->
-<rect id='depict_Default&#46;draft&#95;years' class='entity' style='stroke:#81B976' x='640' y='152' width='96' height='80' />
-<rect x='640' y='152' width='96' height='28' style='stroke-width:0; fill:#F2FAF1'/>
-<line class='topLine' style='stroke:#2C9817;' stroke-linecap='round' x1='640' y1='152' x2='736' y2='152'/>
-<a xlink:href='#Default.draft_years'><text x='653' y='171' >draft&#95;years</text><title>Table Default.draft_years</title></a>
-  <use id='nn' x='642' y='189' xlink:href='#nn'/><use id='pk' x='642' y='188' xlink:href='#pk'><title>&#x1F511;  Pk pk_draft_years ( year ) </title></use><a xlink:href='#Default.draft_years_year'><text id='Default&#46;draft&#95;years&#46;year' x='659' y='199' onmouseover="hghl(['players_draft_FK_players_draft draft_years','Default.players_draft.year'])" onmouseout="uhghl(['players_draft_FK_players_draft draft_years','Default.players_draft.year'])">year</text><title>&#10697;  year
-     * integer
- &#8601; players_draft( year )</title></a>
-<a xlink:href='#Default.draft_years.year'><use id='ref' x='724' y='188' xlink:href='#ref'/><title>&#x1F517;  Referred by players_draft ( year ) </title></a>
-  <a xlink:href='#Default.draft_years_draft_cap'><text id='Default&#46;draft&#95;years&#46;draft&#95;cap' x='659' y='215'>draft&#95;cap</text><title>&#10697;  draft_cap
-     integer</title></a>
-<text x='733' y='212' text-anchor='end' class='colType'>&#35;</text>
+<text x='528' y='776' text-anchor='end' style='fill:#8698B5;stroke:0;'>TEXT</text>
 <!-- == Table 'players_draft' == -->
-<rect id='depict_Default&#46;players&#95;draft' class='entity' style='stroke:#81B976' x='416' y='152' width='160' height='144' />
-<rect x='416' y='152' width='160' height='28' style='stroke-width:0; fill:#F2FAF1'/>
-<line class='topLine' style='stroke:#2C9817;' stroke-linecap='round' x1='416' y1='152' x2='576' y2='152'/>
-<a xlink:href='#Default.players_draft'><text x='456' y='171' >players&#95;draft</text><title>Table Default.players_draft</title></a>
-  <use id='unq' x='418' y='188' xlink:href='#unq'><title>&#x1F50D;  Unq pk_players_draft ( id, year ) </title></use><a xlink:href='#Default.players_draft_id'><text id='Default&#46;players&#95;draft&#46;id' x='435' y='199' onmouseover="hghl(['players_draft_FK_players_draft players','Default.players.id'])" onmouseout="uhghl(['players_draft_FK_players_draft players','Default.players.id'])">id</text><title>&#10697;  id
+<rect id='depict_Default&#46;players&#95;draft' class='entity' style='stroke:#768FB9' x='624' y='680' width='160' height='128' />
+<rect x='624' y='680' width='160' height='28' style='stroke-width:0; fill:#F1F4FA'/>
+<line class='topLine' style='stroke:#174898;' stroke-linecap='round' x1='624' y1='680' x2='784' y2='680'/>
+<a xlink:href='#Default.players_draft'><text x='664' y='699' >players&#95;draft</text><title>Table Default.players_draft</title></a>
+  <use id='unq' x='626' y='716' xlink:href='#unq'><title>&#x1F50D;  Unq pk_players_draft ( id, year ) </title></use><a xlink:href='#Default.players_draft_id'><text id='Default&#46;players&#95;draft&#46;id' x='643' y='727' onmouseover="hghl(['players_draft_FK_players_draft players','Default.players.id'])" onmouseout="uhghl(['players_draft_FK_players_draft players','Default.players.id'])">id</text><title>&#10697;  id
      integer
  &#8599; players_draft( id )</title></a>
-<a xlink:href='#Default.players_draft.id'><use id='fk' x='564' y='188' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
-  <use id='unq' x='418' y='204' xlink:href='#unq'><title>&#x1F50D;  Unq pk_players_draft ( id, year ) </title></use><a xlink:href='#Default.players_draft_year'><text id='Default&#46;players&#95;draft&#46;year' x='435' y='215' onmouseover="hghl(['players_draft_FK_players_draft draft_years','Default.draft_years.year'])" onmouseout="uhghl(['players_draft_FK_players_draft draft_years','Default.draft_years.year'])">year</text><title>&#10697;  year
+<text x='768' y='728' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.players_draft.id'><use id='fk' x='772' y='716' xlink:href='#fk'/><title>&#x1F517;  References players ( id ) </title></a>
+  <use id='unq' x='626' y='732' xlink:href='#unq'><title>&#x1F50D;  Unq pk_players_draft ( id, year ) </title></use><a xlink:href='#Default.players_draft_year'><text id='Default&#46;players&#95;draft&#46;year' x='643' y='743' onmouseover="hghl(['players_draft_FK_players_draft draft_years','Default.draft_years.year'])" onmouseout="uhghl(['players_draft_FK_players_draft draft_years','Default.draft_years.year'])">year</text><title>&#10697;  year
      integer
  &#8599; players_draft( year )</title></a>
-<a xlink:href='#Default.players_draft.year'><use id='fk' x='564' y='204' xlink:href='#fk'/><title>&#x1F517;  References draft_years ( year ) </title></a>
-  <a xlink:href='#Default.players_draft_draft_pick'><text id='Default&#46;players&#95;draft&#46;draft&#95;pick' x='435' y='231'>draft&#95;pick</text><title>&#10697;  draft_pick
+<text x='768' y='744' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text><a xlink:href='#Default.players_draft.year'><use id='fk' x='772' y='732' xlink:href='#fk'/><title>&#x1F517;  References draft_years ( year ) </title></a>
+  <a xlink:href='#Default.players_draft_draft_pick'><text id='Default&#46;players&#95;draft&#46;draft&#95;pick' x='643' y='759'>draft&#95;pick</text><title>&#10697;  draft_pick
      integer</title></a>
-<text x='573' y='228' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.players_draft_draft_keeper'><text id='Default&#46;players&#95;draft&#46;draft&#95;keeper' x='435' y='247'>draft&#95;keeper</text><title>&#10697;  draft_keeper
+<text x='768' y='760' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text>  <a xlink:href='#Default.players_draft_draft_keeper'><text id='Default&#46;players&#95;draft&#46;draft&#95;keeper' x='643' y='775'>draft&#95;keeper</text><title>&#10697;  draft_keeper
      integer</title></a>
-<text x='573' y='244' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.players_draft_draft_price'><text id='Default&#46;players&#95;draft&#46;draft&#95;price' x='435' y='263'>draft&#95;price</text><title>&#10697;  draft_price
+<text x='768' y='776' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text>  <a xlink:href='#Default.players_draft_draft_price'><text id='Default&#46;players&#95;draft&#46;draft&#95;price' x='643' y='791'>draft&#95;price</text><title>&#10697;  draft_price
      integer</title></a>
-<text x='573' y='260' text-anchor='end' class='colType'>&#35;</text>  <a xlink:href='#Default.players_draft_draft_cap_percentage'><text id='Default&#46;players&#95;draft&#46;draft&#95;cap&#95;percentage' x='435' y='279'>draft&#95;cap&#95;percentage</text><title>&#10697;  draft_cap_percentage
+<text x='768' y='792' text-anchor='end' style='fill:#8698B5;stroke:0;'>INTEGER</text>
+<!-- == Table 'scoring' == -->
+<rect id='depict_Default&#46;scoring' class='entity' style='stroke:#769BB9' x='864' y='344' width='96' height='688' />
+<rect x='864' y='344' width='96' height='28' style='stroke-width:0; fill:#F1F6FA'/>
+<line class='topLine' style='stroke:#176098;' stroke-linecap='round' x1='864' y1='344' x2='960' y2='344'/>
+<a xlink:href='#Default.scoring'><text x='888' y='363' >scoring</text><title>Table Default.scoring</title></a>
+  <a xlink:href='#Default.scoring_G'><text id='Default&#46;scoring&#46;G' x='883' y='391'>G</text><title>&#10697;  G
      real</title></a>
-<text x='573' y='276' text-anchor='end' class='colType'>&#35;</text>
-<!-- == Callout == -->
-<rect class='callout' x='240' y='64' width='496' height='71' rx='16' ry='16'  />
-<text x='264' y='64' class='callout'>
-    <tspan x='244.000000' dx='8' dy='20'>This is a layout&#46; You can create multiple layouts with the same or different tables&#46; </tspan>
-    <tspan x='244.000000' dx='8' dy='39'>Edit tables by double&#45;clicking the table headers&#46;</tspan>
-</text>
+<text x='944' y='392' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_A'><text id='Default&#46;scoring&#46;A' x='883' y='407'>A</text><title>&#10697;  A
+     real</title></a>
+<text x='944' y='408' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_PIM'><text id='Default&#46;scoring&#46;PIM' x='883' y='423'>PIM</text><title>&#10697;  PIM
+     real</title></a>
+<text x='944' y='424' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_PPG'><text id='Default&#46;scoring&#46;PPG' x='883' y='439'>PPG</text><title>&#10697;  PPG
+     real</title></a>
+<text x='944' y='440' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_PPA'><text id='Default&#46;scoring&#46;PPA' x='883' y='455'>PPA</text><title>&#10697;  PPA
+     real</title></a>
+<text x='944' y='456' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SHG'><text id='Default&#46;scoring&#46;SHG' x='883' y='471'>SHG</text><title>&#10697;  SHG
+     real</title></a>
+<text x='944' y='472' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SHA'><text id='Default&#46;scoring&#46;SHA' x='883' y='487'>SHA</text><title>&#10697;  SHA
+     real</title></a>
+<text x='944' y='488' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_GWG'><text id='Default&#46;scoring&#46;GWG' x='883' y='503'>GWG</text><title>&#10697;  GWG
+     real</title></a>
+<text x='944' y='504' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_HAT'><text id='Default&#46;scoring&#46;HAT' x='883' y='519'>HAT</text><title>&#10697;  HAT
+     real</title></a>
+<text x='944' y='520' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SOG'><text id='Default&#46;scoring&#46;SOG' x='883' y='535'>SOG</text><title>&#10697;  SOG
+     real</title></a>
+<text x='944' y='536' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_HIT'><text id='Default&#46;scoring&#46;HIT' x='883' y='551'>HIT</text><title>&#10697;  HIT
+     real</title></a>
+<text x='944' y='552' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_BLK'><text id='Default&#46;scoring&#46;BLK' x='883' y='567'>BLK</text><title>&#10697;  BLK
+     real</title></a>
+<text x='944' y='568' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_DEF'><text id='Default&#46;scoring&#46;DEF' x='883' y='583'>DEF</text><title>&#10697;  DEF
+     real</title></a>
+<text x='944' y='584' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_FOW'><text id='Default&#46;scoring&#46;FOW' x='883' y='599'>FOW</text><title>&#10697;  FOW
+     real</title></a>
+<text x='944' y='600' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_FOL'><text id='Default&#46;scoring&#46;FOL' x='883' y='615'>FOL</text><title>&#10697;  FOL
+     real</title></a>
+<text x='944' y='616' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_TTOI'><text id='Default&#46;scoring&#46;TTOI' x='883' y='631'>TTOI</text><title>&#10697;  TTOI
+     real</title></a>
+<text x='944' y='632' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_ATOI'><text id='Default&#46;scoring&#46;ATOI' x='883' y='647'>ATOI</text><title>&#10697;  ATOI
+     real</title></a>
+<text x='944' y='648' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_GP'><text id='Default&#46;scoring&#46;GP' x='883' y='663'>GP</text><title>&#10697;  GP
+     real</title></a>
+<text x='944' y='664' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring__5'><text id='Default&#46;scoring&#46;&#95;5' x='883' y='679'>&#95;5</text><title>&#10697;  _5
+     real</title></a>
+<text x='944' y='680' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring__12'><text id='Default&#46;scoring&#46;&#95;12' x='883' y='695'>&#95;12</text><title>&#10697;  _12
+     real</title></a>
+<text x='944' y='696' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_PTS'><text id='Default&#46;scoring&#46;PTS' x='883' y='711'>PTS</text><title>&#10697;  PTS
+     real</title></a>
+<text x='944' y='712' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring__25'><text id='Default&#46;scoring&#46;&#95;25' x='883' y='727'>&#95;25</text><title>&#10697;  _25
+     real</title></a>
+<text x='944' y='728' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring__35'><text id='Default&#46;scoring&#46;&#95;35' x='883' y='743'>&#95;35</text><title>&#10697;  _35
+     real</title></a>
+<text x='944' y='744' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring__36'><text id='Default&#46;scoring&#46;&#95;36' x='883' y='759'>&#95;36</text><title>&#10697;  _36
+     real</title></a>
+<text x='944' y='760' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring__37'><text id='Default&#46;scoring&#46;&#95;37' x='883' y='775'>&#95;37</text><title>&#10697;  _37
+     real</title></a>
+<text x='944' y='776' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring__99'><text id='Default&#46;scoring&#46;&#95;99' x='883' y='791'>&#95;99</text><title>&#10697;  _99
+     real</title></a>
+<text x='944' y='792' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_P_M'><text id='Default&#46;scoring&#46;P&#95;M' x='883' y='807'>P&#95;M</text><title>&#10697;  P_M
+     real</title></a>
+<text x='944' y='808' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_PPP'><text id='Default&#46;scoring&#46;PPP' x='883' y='823'>PPP</text><title>&#10697;  PPP
+     real</title></a>
+<text x='944' y='824' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SHP'><text id='Default&#46;scoring&#46;SHP' x='883' y='839'>SHP</text><title>&#10697;  SHP
+     real</title></a>
+<text x='944' y='840' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_GS'><text id='Default&#46;scoring&#46;GS' x='883' y='855'>GS</text><title>&#10697;  GS
+     real</title></a>
+<text x='944' y='856' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_W'><text id='Default&#46;scoring&#46;W' x='883' y='871'>W</text><title>&#10697;  W
+     real</title></a>
+<text x='944' y='872' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_L'><text id='Default&#46;scoring&#46;L' x='883' y='887'>L</text><title>&#10697;  L
+     real</title></a>
+<text x='944' y='888' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SA'><text id='Default&#46;scoring&#46;SA' x='883' y='903'>SA</text><title>&#10697;  SA
+     real</title></a>
+<text x='944' y='904' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_GA'><text id='Default&#46;scoring&#46;GA' x='883' y='919'>GA</text><title>&#10697;  GA
+     real</title></a>
+<text x='944' y='920' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SV'><text id='Default&#46;scoring&#46;SV' x='883' y='935'>SV</text><title>&#10697;  SV
+     real</title></a>
+<text x='944' y='936' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SO'><text id='Default&#46;scoring&#46;SO' x='883' y='951'>SO</text><title>&#10697;  SO
+     real</title></a>
+<text x='944' y='952' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_OTL'><text id='Default&#46;scoring&#46;OTL' x='883' y='967'>OTL</text><title>&#10697;  OTL
+     real</title></a>
+<text x='944' y='968' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_MIN'><text id='Default&#46;scoring&#46;MIN' x='883' y='983'>MIN</text><title>&#10697;  MIN
+     real</title></a>
+<text x='944' y='984' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_GAA'><text id='Default&#46;scoring&#46;GAA' x='883' y='999'>GAA</text><title>&#10697;  GAA
+     real</title></a>
+<text x='944' y='1000' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>  <a xlink:href='#Default.scoring_SVP'><text id='Default&#46;scoring&#46;SVP' x='883' y='1015'>SVP</text><title>&#10697;  SVP
+     real</title></a>
+<text x='944' y='1016' text-anchor='end' style='fill:#86A0B5;stroke:0;'>REAL</text>
 </g></svg></div>
 <script type='text/javascript'>
 var svgContainers = document.getElementsByClassName("svgContainer");
@@ -712,7 +793,7 @@ function installListeners( svgContainer, svgImage ){
 <div class='card'><div class='card-body'><a name='Default' style='cursor:pointer;'><h5 class='card-title'>Schema Default</h5></div></div>
 
 <br><br>
-<div class='card'><div class='card-body'><a name='Default.defencemen_stats'  onclick="window.scrollTo(60, 448);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.defencemen_stats').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table defencemen_stats</h5></a>
+<div class='card'><div class='card-body'><a name='Default.defencemen_stats'  onclick="window.scrollTo(60, 736);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.defencemen_stats').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table defencemen_stats</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -724,7 +805,7 @@ function installListeners( svgContainer, svgImage ){
 		<td> INTEGER  </td>
 	</tr>
 	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
+		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
 		<td><a name='Default.defencemen_stats_year'>year</a></td>
 		<td> INTEGER  </td>
 	</tr>
@@ -735,17 +816,62 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_G'>G</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
 		<td><a name='Default.defencemen_stats_A'>A</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_P_M'>P&#95;M</a></td>
+		<td><a name='Default.defencemen_stats__36'>&#95;36</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_SHP'>SHP</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_GWG'>GWG</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_BLK'>BLK</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats__25'>&#95;25</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_PPG'>PPG</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_DEF'>DEF</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_TTOI'>TTOI</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_SHA'>SHA</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats__35'>&#95;35</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_FOW'>FOW</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
@@ -755,12 +881,12 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_PIM'>PIM</a></td>
+		<td><a name='Default.defencemen_stats_ATOI'>ATOI</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_PPG'>PPG</a></td>
+		<td><a name='Default.defencemen_stats_FOL'>FOL</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
@@ -775,41 +901,6 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_SHA'>SHA</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_GWG'>GWG</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_FOW'>FOW</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_FOL'>FOL</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_TTOI'>TTOI</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_ATOI'>ATOI</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_HAT'>HAT</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
 		<td><a name='Default.defencemen_stats_SOG'>SOG</a></td>
 		<td> REAL  </td>
 	</tr>
@@ -820,17 +911,42 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats__37'>&#95;37</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_G'>G</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_PPP'>PPP</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_PIM'>PIM</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
 		<td><a name='Default.defencemen_stats_HIT'>HIT</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_BLK'>BLK</a></td>
+		<td><a name='Default.defencemen_stats_P_M'>P&#95;M</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.defencemen_stats_DEF'>DEF</a></td>
+		<td><a name='Default.defencemen_stats_HAT'>HAT</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.defencemen_stats_MIN'>MIN</a></td>
 		<td> REAL  </td>
 	</tr>
 <tr><th colspan='3'>Indexes</th></tr>
@@ -840,13 +956,17 @@ function installListeners( svgContainer, svgImage ){
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_defencemen_stats players</td>
-		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(60, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
+		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(200, 672);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_defencemen_stats draft_years</td>
+		<td > year &#8599; <a href='#Default&#46;draft&#95;years'  onclick="window.scrollTo(344, 560);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.draft_years').classList.add('palpable'); return false;">&#10063; draft&#95;years</a> </td>
 	</tr>
 </tbody>
 </table></div></div>
 
 <br><br>
-<div class='card'><div class='card-body'><a name='Default.draft_years'  onclick="window.scrollTo(440, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.draft_years').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table draft_years</h5></a>
+<div class='card'><div class='card-body'><a name='Default.draft_years'  onclick="window.scrollTo(344, 560);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.draft_years').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table draft_years</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -868,14 +988,26 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_defencemen_stats draft_years</td>
+		<td > year &#8601; <a href='#Default&#46;defencemen&#95;stats'  onclick="window.scrollTo(60, 736);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.defencemen_stats').classList.add('palpable'); return false;">&#10063; defencemen&#95;stats</a> </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_forwards_stats draft_years</td>
+		<td > year &#8601; <a href='#Default&#46;forwards&#95;stats'  onclick="window.scrollTo(60, 80);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.forwards_stats').classList.add('palpable'); return false;">&#10063; forwards&#95;stats</a> </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_goalies_stats draft_years</td>
+		<td > year &#8601; <a href='#Default&#46;goalies&#95;stats'  onclick="window.scrollTo(60, 432);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.goalies_stats').classList.add('palpable'); return false;">&#10063; goalies&#95;stats</a> </td>
+	</tr>
+	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_players_draft draft_years</td>
-		<td > year &#8601; <a href='#Default&#46;players&#95;draft'  onclick="window.scrollTo(216, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players_draft').classList.add('palpable'); return false;">&#10063; players&#95;draft</a> </td>
+		<td > year &#8601; <a href='#Default&#46;players&#95;draft'  onclick="window.scrollTo(424, 688);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players_draft').classList.add('palpable'); return false;">&#10063; players&#95;draft</a> </td>
 	</tr>
 </tbody>
 </table></div></div>
 
 <br><br>
-<div class='card'><div class='card-body'><a name='Default.forwards_stats'  onclick="window.scrollTo(88, 448);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.forwards_stats').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table forwards_stats</h5></a>
+<div class='card'><div class='card-body'><a name='Default.forwards_stats'  onclick="window.scrollTo(60, 80);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.forwards_stats').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table forwards_stats</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -887,7 +1019,7 @@ function installListeners( svgContainer, svgImage ){
 		<td> INTEGER  </td>
 	</tr>
 	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
+		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
 		<td><a name='Default.forwards_stats_year'>year</a></td>
 		<td> INTEGER  </td>
 	</tr>
@@ -898,17 +1030,57 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_G'>G</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
 		<td><a name='Default.forwards_stats_A'>A</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_P_M'>P&#95;M</a></td>
+		<td><a name='Default.forwards_stats__36'>&#95;36</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_SHP'>SHP</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_GWG'>GWG</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_BLK'>BLK</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats__25'>&#95;25</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_PPG'>PPG</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_TTOI'>TTOI</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_SHA'>SHA</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats__35'>&#95;35</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_FOW'>FOW</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
@@ -918,12 +1090,12 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_PIM'>PIM</a></td>
+		<td><a name='Default.forwards_stats_ATOI'>ATOI</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_PPG'>PPG</a></td>
+		<td><a name='Default.forwards_stats_FOL'>FOL</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
@@ -938,41 +1110,6 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_SHA'>SHA</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_GWG'>GWG</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_FOW'>FOW</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_FOL'>FOL</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_TTOI'>TTOI</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_ATOI'>ATOI</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_HAT'>HAT</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
 		<td><a name='Default.forwards_stats_SOG'>SOG</a></td>
 		<td> REAL  </td>
 	</tr>
@@ -983,12 +1120,42 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats__37'>&#95;37</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_G'>G</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_PPP'>PPP</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_PIM'>PIM</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
 		<td><a name='Default.forwards_stats_HIT'>HIT</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.forwards_stats_BLK'>BLK</a></td>
+		<td><a name='Default.forwards_stats_P_M'>P&#95;M</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_HAT'>HAT</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.forwards_stats_MIN'>MIN</a></td>
 		<td> REAL  </td>
 	</tr>
 <tr><th colspan='3'>Indexes</th></tr>
@@ -998,13 +1165,17 @@ function installListeners( svgContainer, svgImage ){
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_forwards_stats players</td>
-		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(60, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
+		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(200, 672);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_forwards_stats draft_years</td>
+		<td > year &#8599; <a href='#Default&#46;draft&#95;years'  onclick="window.scrollTo(344, 560);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.draft_years').classList.add('palpable'); return false;">&#10063; draft&#95;years</a> </td>
 	</tr>
 </tbody>
 </table></div></div>
 
 <br><br>
-<div class='card'><div class='card-body'><a name='Default.goalie_stats'  onclick="window.scrollTo(60, 96);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.goalie_stats').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table goalie_stats</h5></a>
+<div class='card'><div class='card-body'><a name='Default.goalies_stats'  onclick="window.scrollTo(60, 432);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.goalies_stats').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table goalies_stats</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1012,83 +1183,162 @@ function installListeners( svgContainer, svgImage ){
 <tbody>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
-		<td><a name='Default.goalie_stats_id'>id</a></td>
+		<td><a name='Default.goalies_stats_id'>id</a></td>
+		<td> INTEGER  </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg><svg width='14' height='14'><use xlink:href='#fk'/></svg></td>
+		<td><a name='Default.goalies_stats_year'>year</a></td>
 		<td> INTEGER  </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
-		<td><a name='Default.goalie_stats_year'>year</a></td>
-		<td> INTEGER  </td>
-	</tr>
-	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td>
-		<td><a name='Default.goalie_stats_stats_type'>stats&#95;type</a></td>
+		<td><a name='Default.goalies_stats_stats_type'>stats&#95;type</a></td>
 		<td> TEXT  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_GS'>GS</a></td>
+		<td><a name='Default.goalies_stats_SV'>SV</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_W'>W</a></td>
+		<td><a name='Default.goalies_stats__36'>&#95;36</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_L'>L</a></td>
+		<td><a name='Default.goalies_stats_W'>W</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_GA'>GA</a></td>
+		<td><a name='Default.goalies_stats_SHP'>SHP</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_SV'>SV</a></td>
+		<td><a name='Default.goalies_stats_SO'>SO</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_SO'>SO</a></td>
+		<td><a name='Default.goalies_stats_SVP'>SVP</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_OTL'>OTL</a></td>
+		<td><a name='Default.goalies_stats__12'>&#95;12</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_MIN'>MIN</a></td>
+		<td><a name='Default.goalies_stats_MIN'>MIN</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_GAA'>GAA</a></td>
+		<td><a name='Default.goalies_stats_GA'>GA</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.goalie_stats_SVP'>SVP</a></td>
+		<td><a name='Default.goalies_stats__35'>&#95;35</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_L'>L</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_GS'>GS</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_GP'>GP</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats__37'>&#95;37</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_PPP'>PPP</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_GAA'>GAA</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_OTL'>OTL</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_SA'>SA</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats__99'>&#95;99</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_TTOI'>TTOI</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats__25'>&#95;25</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_ATOI'>ATOI</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats__5'>&#95;5</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_A'>A</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.goalies_stats_PTS'>PTS</a></td>
 		<td> REAL  </td>
 	</tr>
 <tr><th colspan='3'>Indexes</th></tr>
-	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>pk&#95;goalie&#95;stats</td>
+	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>pk&#95;goalies&#95;stats</td>
 		<td>Unique Key ON id&#44; year&#44; stats&#95;type</td>
 	</tr>
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_goalie_stats players</td>
-		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(60, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_goalies_stats players</td>
+		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(200, 672);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
+	</tr>
+	<tr>
+		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_goalies_stats draft_years</td>
+		<td > year &#8599; <a href='#Default&#46;draft&#95;years'  onclick="window.scrollTo(344, 560);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.draft_years').classList.add('palpable'); return false;">&#10063; draft&#95;years</a> </td>
 	</tr>
 </tbody>
 </table></div></div>
 
 <br><br>
-<div class='card'><div class='card-body'><a name='Default.players'  onclick="window.scrollTo(60, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table players</h5></a>
+<div class='card'><div class='card-body'><a name='Default.players'  onclick="window.scrollTo(200, 672);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table players</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1126,25 +1376,25 @@ function installListeners( svgContainer, svgImage ){
 <tr><th colspan='3'>Referring Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_defencemen_stats players</td>
-		<td > id &#8601; <a href='#Default&#46;defencemen&#95;stats'  onclick="window.scrollTo(60, 448);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.defencemen_stats').classList.add('palpable'); return false;">&#10063; defencemen&#95;stats</a> </td>
+		<td > id &#8601; <a href='#Default&#46;defencemen&#95;stats'  onclick="window.scrollTo(60, 736);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.defencemen_stats').classList.add('palpable'); return false;">&#10063; defencemen&#95;stats</a> </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_forwards_stats players</td>
-		<td > id &#8601; <a href='#Default&#46;forwards&#95;stats'  onclick="window.scrollTo(88, 448);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.forwards_stats').classList.add('palpable'); return false;">&#10063; forwards&#95;stats</a> </td>
+		<td > id &#8601; <a href='#Default&#46;forwards&#95;stats'  onclick="window.scrollTo(60, 80);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.forwards_stats').classList.add('palpable'); return false;">&#10063; forwards&#95;stats</a> </td>
 	</tr>
 	<tr>
-		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_goalie_stats players</td>
-		<td > id &#8601; <a href='#Default&#46;goalie&#95;stats'  onclick="window.scrollTo(60, 96);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.goalie_stats').classList.add('palpable'); return false;">&#10063; goalie&#95;stats</a> </td>
+		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_goalies_stats players</td>
+		<td > id &#8601; <a href='#Default&#46;goalies&#95;stats'  onclick="window.scrollTo(60, 432);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.goalies_stats').classList.add('palpable'); return false;">&#10063; goalies&#95;stats</a> </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#ref'/></svg></td><td>FK_players_draft players</td>
-		<td > id &#8601; <a href='#Default&#46;players&#95;draft'  onclick="window.scrollTo(216, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players_draft').classList.add('palpable'); return false;">&#10063; players&#95;draft</a> </td>
+		<td > id &#8601; <a href='#Default&#46;players&#95;draft'  onclick="window.scrollTo(424, 688);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players_draft').classList.add('palpable'); return false;">&#10063; players&#95;draft</a> </td>
 	</tr>
 </tbody>
 </table></div></div>
 
 <br><br>
-<div class='card'><div class='card-body'><a name='Default.players_draft'  onclick="window.scrollTo(216, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players_draft').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table players_draft</h5></a>
+<div class='card'><div class='card-body'><a name='Default.players_draft'  onclick="window.scrollTo(424, 688);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players_draft').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table players_draft</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1175,11 +1425,6 @@ function installListeners( svgContainer, svgImage ){
 		<td><a name='Default.players_draft_draft_price'>draft&#95;price</a></td>
 		<td> INTEGER  </td>
 	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.players_draft_draft_cap_percentage'>draft&#95;cap&#95;percentage</a></td>
-		<td> REAL  </td>
-	</tr>
 <tr><th colspan='3'>Indexes</th></tr>
 	<tr>		<td><svg width='14' height='14'><use xlink:href='#unq'/></svg></td><td>pk&#95;players&#95;draft</td>
 		<td>Unique Key ON id&#44; year</td>
@@ -1187,17 +1432,17 @@ function installListeners( svgContainer, svgImage ){
 <tr><th colspan='3'>Foreign Key</th></tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_players_draft players</td>
-		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(60, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
+		<td > id &#8599; <a href='#Default&#46;players'  onclick="window.scrollTo(200, 672);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.players').classList.add('palpable'); return false;">&#10063; players</a> </td>
 	</tr>
 	<tr>
 		<td><svg width='14' height='14'><use xlink:href='#fk'/></svg></td><td>FK_players_draft draft_years</td>
-		<td > year &#8599; <a href='#Default&#46;draft&#95;years'  onclick="window.scrollTo(440, 160);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.draft_years').classList.add('palpable'); return false;">&#10063; draft&#95;years</a> </td>
+		<td > year &#8599; <a href='#Default&#46;draft&#95;years'  onclick="window.scrollTo(344, 560);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.draft_years').classList.add('palpable'); return false;">&#10063; draft&#95;years</a> </td>
 	</tr>
 </tbody>
 </table></div></div>
 
 <br><br>
-<div class='card'><div class='card-body'><a name='Default.scoring'  onclick="window.scrollTo(600, 96);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.scoring').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table scoring</h5></a>
+<div class='card'><div class='card-body'><a name='Default.scoring'  onclick="window.scrollTo(664, 352);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.scoring').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table scoring</h5></a>
 <table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
 <thead>
 <tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
@@ -1280,11 +1525,6 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.scoring__25'>&#95;25</a></td>
-		<td> REAL  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
 		<td><a name='Default.scoring_TTOI'>TTOI</a></td>
 		<td> REAL  </td>
 	</tr>
@@ -1296,6 +1536,26 @@ function installListeners( svgContainer, svgImage ){
 	<tr>
 		<td>&nbsp;</td>
 		<td><a name='Default.scoring_GP'>GP</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.scoring__5'>&#95;5</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.scoring__12'>&#95;12</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.scoring_PTS'>PTS</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.scoring__25'>&#95;25</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
@@ -1315,12 +1575,12 @@ function installListeners( svgContainer, svgImage ){
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.scoring_P_M'>P&#95;M</a></td>
+		<td><a name='Default.scoring__99'>&#95;99</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a name='Default.scoring_PTS'>PTS</a></td>
+		<td><a name='Default.scoring_P_M'>P&#95;M</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
@@ -1346,6 +1606,11 @@ function installListeners( svgContainer, svgImage ){
 	<tr>
 		<td>&nbsp;</td>
 		<td><a name='Default.scoring_L'>L</a></td>
+		<td> REAL  </td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><a name='Default.scoring_SA'>SA</a></td>
 		<td> REAL  </td>
 	</tr>
 	<tr>
@@ -1382,26 +1647,6 @@ function installListeners( svgContainer, svgImage ){
 		<td>&nbsp;</td>
 		<td><a name='Default.scoring_SVP'>SVP</a></td>
 		<td> REAL  </td>
-	</tr>
-</tbody>
-</table></div></div>
-
-<br><br>
-<div class='card'><div class='card-body'><a name='Default.years_tracking'  onclick="window.scrollTo(760, 96);var nodes = document.getElementsByClassName('palpable');for (var i = 0; i < nodes.length; i++) { nodes[i].classList.remove('palpable');}; document.getElementById('depict_Default.years_tracking').classList.add('palpable'); return false;" style='cursor:pointer;'><h5 class='card-title'>Table years_tracking</h5></a>
-<table class='table table-sm small' style='table-layout: fixed; word-wrap: break-word;'>
-<thead>
-<tr><th style='width:5%'>Idx</th><th style='width:40%'>Column Name</th><th>Data Type</th></tr>
-</thead>
-<tbody>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.years_tracking_year'>year</a></td>
-		<td> INTEGER  </td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td><a name='Default.years_tracking_data_type'>data&#95;type</a></td>
-		<td> TEXT  </td>
 	</tr>
 </tbody>
 </table></div></div>

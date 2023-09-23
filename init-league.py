@@ -10,14 +10,14 @@ def init_db(league_id):
     conn = sqlite3.connect(f'espn-data/{league_id}/league.db')
     cursor = conn.cursor()
 
-    cursor.execute(get_create_table_command('players', schemas.sqlite_players_table))
     scoring_table = {value: "REAL" for value in schemas.espn_to_sqlite_names.values()}
     cursor.execute(get_create_table_command('scoring', scoring_table))
+    
+    cursor.execute(get_create_table_command('players', schemas.sqlite_players_table))
     cursor.execute(get_create_table_command('players_draft', schemas.sqlite_players_draft))
     cursor.execute(get_create_table_command('forwards_stats', schemas.sqlite_forwards_stats_table))
     cursor.execute(get_create_table_command('defencemen_stats', schemas.sqlite_defencemen_stats_table))
     cursor.execute(get_create_table_command('goalies_stats', schemas.sqlite_goalies_stats_table))
-    cursor.execute(get_create_table_command('years_tracking', schemas.sqlite_years_tracking_table))
     cursor.execute(get_create_table_command('draft_years', schemas.sqlite_draft_years))
 
     conn.commit()

@@ -96,13 +96,14 @@ class DataPublisher:
         self.cursor.execute(f'PRAGMA table_info({table_name})')
         return [column[1] for column in self.cursor.fetchall()]
     
-    def publish_players_data(self):
+    def publish_players_stats_data(self):
         """
         Publish players data to the database
         """
         # add player to the players table
         # add players data to the players stats table based on position
-        
+        print(f'-' * 80)
+        print(f'Publishing players data for year: {self.year} ...')
         for player in self.fa:
             try:
                 stats = dict()
@@ -152,35 +153,59 @@ class DataPublisher:
                         setattr(self, f'{position_stat_table_name}_columns', set(sorted(self.get_table_column_names(position_stat_table_name))))
                         print(f'Columns in the table: {getattr(self, f"{position_stat_table_name}_columns")}')
 
-                    sql_command = generate_insert_sql(position_stat_table_name, transformed_stats)
-                    try:
-                        self.cursor.execute(sql_command, tuple(transformed_stats.values()))
-                        self.conn.commit() 
-                    except sqlite3.OperationalError as e:
-                        print(e)
-                        print(f'ERROR: Unable to execute sql command: {sql_command}')
-                        print(f'{player.playerId} - {player.name} - {key} - {self.year}')
-                        print(traceback.format_exc())
-                        continue
-                    except sqlite3.IntegrityError as e:
-                        if 'UNIQUE constraint failed' in str(e):
-                            print(f'WARNING: Duplicate data detected. Skipping.')
-                            print(f'{player.playerId} - {player.name} - {key} - {self.year}')
-                            continue
-                        print(f'ERROR: Unable to execute sql command: {sql_command}')
-                        print(f'{player.playerId} - {player.name} - {key} - {self.year}')
-                        print(e)
-                        print(traceback.format_exc())
-                        continue                       
+                    self.sql_commit_insert_into_db(position_stat_table_name, transformed_stats)
 
             except Exception as e:
-                print("UNHANDLED EXCEPTION")
+                print("UNHANDLED EXCEPTION while trying to publish players data.")
                 print(e)
                 print(traceback.format_exc())
                 pass
-        
         pass
 
+    def publish_draft_years_data(self):
+        print(f'-' * 80)
+        print(f'Publishing draft years data for year: {self.year} ...')
+        draft = dict()
+        draft['year'] = self.year
+        draft['draft_cap'] = self.draft['settings']['draftSettings']['auctionBudget']
+        self.sql_commit_insert_into_db('draft_years', draft)
+
+
+    def publish_players_draft_data(self):
+        print(f'-' * 80)
+        print(f'Publishing players draft data for year: {self.year} ...')
+        for pick in self.draft['draftDetail']['picks']:
+            data = dict()
+            if pick['playerId'] == -1:
+                continue
+            data['id'] = pick['playerId']
+            data['year'] = self.year
+            data['draft_pick'] = pick['overallPickNumber']
+            data['draft_keeper'] = pick['keeper']
+            data['draft_price'] = pick['bidAmount']
+            self.sql_commit_insert_into_db('players_draft', data)
+
+
+    def set_active_players(self):
+        print(f'-' * 80)
+        print(f'Setting active players for year: {self.year} ...')
+        for player in self.fa:
+            pass
+
+    def sql_commit_insert_into_db(self, table_name: str, data: dict):
+        try:
+            sql_command = generate_insert_sql(table_name, data)
+            self.cursor.execute(sql_command, tuple(data.values()))
+            self.conn.commit()
+        except sqlite3.IntegrityError as e:
+            if 'UNIQUE constraint failed' in str(e):
+                print(f'WARNING: Duplicate data detected while INSERT into {table_name}. Skipping.')
+                print(f'{data}')
+                return
+            print(f'ERROR: Unable to execute sql command: {sql_command}')
+            print(e)
+            print(traceback.format_exc())
+            raise
 
 def generate_insert_sql(table_name, data_dict):
     # Create the INSERT INTO part of the SQL statement
@@ -217,18 +242,24 @@ def get_years(full_history: bool) -> list:
     return ret
 
 
+
+
 def main(league_id, full_history):
     # years = get_years(full_history)
     years = [2021, 2022, 2023, 2024]
     # years = [2021]
     # years = [2024]
     for year in years:
-        print(f'-' * 80)
+        print(f'=' * 120)
         print(f'Updating data for year: {year}')
         try:
             publisher = DataPublisher(league_id, year)
             publisher.get_fa()
-            publisher.publish_players_data()
+            publisher.publish_players_stats_data()
+            publisher.get_draft()
+            publisher.publish_draft_years_data()
+            publisher.publish_players_draft_data()
+            # publisher.set_active_players()
             pass
         except espn_api.requests.espn_requests.ESPNInvalidLeague as ex:
             print(f'Error, unable to find league data for the year: {year}. Either league id is invalid, or data for this year is not available yet. \n')

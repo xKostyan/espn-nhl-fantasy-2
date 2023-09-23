@@ -113,7 +113,6 @@ sqlite_players_draft = {
     "draft_pick": "INTEGER",
     "draft_keeper": "INTEGER",
     "draft_price": "INTEGER",
-    "draft_cap_percentage": "REAL",
     "UNIQUE": "(id, year)",
     "PRIMARY KEY": "(id, year)",
     "FOREIGN KEY (id)": "REFERENCES players(id)",
@@ -130,7 +129,8 @@ sqlite_forwards_stats_table = {
     "year": "INTEGER",
     "stats_type": "TEXT",
     "PRIMARY KEY": "(id, year, stats_type)",
-    "FOREIGN KEY (id)": "REFERENCES players(id)"
+    "FOREIGN KEY (id)": "REFERENCES players(id)",
+    "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
 }
 
 sqlite_defencemen_stats_table = {
@@ -138,7 +138,8 @@ sqlite_defencemen_stats_table = {
     "year": "INTEGER",
     "stats_type": "TEXT",
     "PRIMARY KEY": "(id, year, stats_type)",
-    "FOREIGN KEY (id)": "REFERENCES players(id)"
+    "FOREIGN KEY (id)": "REFERENCES players(id)",
+    "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
 }
 
 sqlite_goalies_stats_table = {
@@ -146,7 +147,8 @@ sqlite_goalies_stats_table = {
     "year": "INTEGER",
     "stats_type": "TEXT",
     "PRIMARY KEY": "(id, year, stats_type)",
-    "FOREIGN KEY (id)": "REFERENCES players(id)"
+    "FOREIGN KEY (id)": "REFERENCES players(id)",
+    "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
 }
 
 # defines years tracking table schema for the sqlite database
