@@ -76,6 +76,7 @@ sqlite_column_descriptions = {
     "BLK": "blocks",
     "DEF": "defensemen points",
     "GP": "games played",
+    "_5": "???",
     "_12": "???",
     "_16": "points",
     "_25": "???",

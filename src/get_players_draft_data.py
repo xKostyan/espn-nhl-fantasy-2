@@ -1,14 +1,16 @@
 import argparse
 from os.path import exists
+from os import getcwd, chdir
 from datetime import date
 from typing import Tuple
 import json
-# from espn_api import requests
 import espn_api
 from src.espn_api_custom import League
+# from espn_api_custom import League
 import sqlite3
 import traceback
 from src import schemas
+# import schemas
 
 position_table_map = {
     'F': 'forwards_stats',
@@ -18,7 +20,13 @@ position_table_map = {
 
 def get_player_position(player) -> Tuple[str, str]:
     """
-    Get player position letter and type
+    Get the player's position letter and type.
+
+    Args:
+        player: The player object.
+
+    Returns:
+        Tuple[str, str]: A tuple containing the position letter and type.
     """
     if (player.position not in ['Goalie', 'Defense']):
         return 'F', 'Skater', position_table_map['F']
@@ -27,22 +35,23 @@ def get_player_position(player) -> Tuple[str, str]:
     elif player.position == 'Defense':
         return 'D', 'Skater', position_table_map['D']
 
-
-
 def get_args() -> argparse.Namespace:
     """
-    Get command line arguments
+    Get command line arguments.
+
+    Returns:
+        argparse.Namespace: An object containing the command line arguments.
     """
-    parser = argparse.ArgumentParser(description='Get credential values by loging into espn league, inspect page, '
+    parser = argparse.ArgumentParser(description='Get credential values by logging into ESPN league, inspect page, '
                                                  'Application tab -> Storage -> Cookies -> "http://fantasy.espn.com". '
                                                  'Find required values in the list.')
     parser.add_argument('--league_id', type=int, help='Id of the fantasy league', required=True)
-    parser.add_argument('--full_history', action='store_true', help='Flag to indicate that data needs to be requested from the begining of time. \nDefault False\nHistory begins at 2019 as espn released new API around that time, but user can not request data for years it was not part of the league.')
+    parser.add_argument('--full_history', action='store_true', help='Flag to indicate that data needs to be requested from the beginning of time. \nDefault False\nHistory begins at 2019 as ESPN released a new API around that time, but users cannot request data for years it was not part of the league.')
     return parser.parse_args()
 
 class DataPublisher:
     """
-    Class to publish data to the database
+    Class to publish data to the database.
     """
     def __init__(self, league_id, year):
         if exists(f'espn-data/{league_id}'):
@@ -71,34 +80,49 @@ class DataPublisher:
 
     def get_league(self) -> League:
         """
-        Get league object
+        Get a league object.
+
+        Returns:
+            League: The League object.
         """
         return League(league_id=self.league_id, espn_s2=self.auth['espn_s2'], swid=self.auth['swid'], year=self.year)
     
     def get_draft(self) -> list:
         """
-        Get draft data
+        Get draft data.
+
+        Returns:
+            list: The draft data.
         """
         self.draft = self.league.espn_request.get_league_draft()
         return self.draft
 
     def get_fa(self) -> list:
         """
-        Get free agents data
+        Get free agents data.
+
+        Returns:
+            list: The free agents data.
         """
         self.fa = self.league.free_agents()
         return self.fa
 
     def get_table_column_names(self, table_name: str) -> list:
         """
-        Get column names for a given table
+        Get column names for a given table.
+
+        Args:
+            table_name (str): The name of the table.
+
+        Returns:
+            list: A list of column names.
         """
         self.cursor.execute(f'PRAGMA table_info({table_name})')
         return [column[1] for column in self.cursor.fetchall()]
     
     def publish_players_stats_data(self):
         """
-        Publish players data to the database
+        Publish players data to the database.
         """
         # add player to the players table
         # add players data to the players stats table based on position
@@ -126,7 +150,7 @@ class DataPublisher:
                     try:
                         transformed_stats = {schemas.espn_to_sqlite_names[key]: value for key, value in stats.items()}
                     except Exception as e:
-                        print('ERROR: Unable to map api stat name to the database column name.')
+                        print('ERROR: Unable to map API stat name to the database column name.')
                         print(f'{player.playerId} - {player.name} - {key} - {self.year}')
                         print(e)
                         continue
@@ -143,7 +167,7 @@ class DataPublisher:
                         print(f'Columns in the table: {dst_columns}')
                         print(f'Columns in the data : {src_columns}')
                         print(f'Missing columns     : {missing_columns}')
-                        print('Attempting to self repair the database ...')
+                        print('Attempting to self-repair the database ...')
                         # add missing columns to the table
                         for column in missing_columns:
                             command = f'ALTER TABLE {position_stat_table_name} ADD COLUMN {column} REAL'
@@ -163,6 +187,13 @@ class DataPublisher:
         pass
 
     def publish_draft_years_data(self):
+        """
+        Publish draft years data for the current year.
+
+        This method retrieves and publishes draft years data for the current year. It extracts the year and draft budget
+        (draft_cap) from the league's draft settings and inserts this information into the 'draft_years' table in the database.
+
+        """
         print(f'-' * 80)
         print(f'Publishing draft years data for year: {self.year} ...')
         draft = dict()
@@ -170,10 +201,20 @@ class DataPublisher:
         draft['draft_cap'] = self.draft['settings']['draftSettings']['auctionBudget']
         self.sql_commit_insert_into_db('draft_years', draft)
 
-
     def publish_players_draft_data(self):
+        """
+        Publish players' draft data for the current year.
+
+        This method retrieves and publishes data about players drafted in the current year. It iterates through the draft picks
+        and collects information such as player ID, draft year, draft pick number, whether the player is a keeper, and the
+        draft price. This data is then inserted into the 'players_draft' table in the database.
+
+        """
         print(f'-' * 80)
         print(f'Publishing players draft data for year: {self.year} ...')
+        if not self.draft['draftDetail']['drafted']:
+            print(f'No draft data available for year {self.year}.')
+            return
         for pick in self.draft['draftDetail']['picks']:
             data = dict()
             if pick['playerId'] == -1:
@@ -186,13 +227,19 @@ class DataPublisher:
             self.sql_commit_insert_into_db('players_draft', data)
 
 
-    def set_active_players(self):
-        print(f'-' * 80)
-        print(f'Setting active players for year: {self.year} ...')
-        for player in self.fa:
-            pass
-
     def sql_commit_insert_into_db(self, table_name: str, data: dict):
+        """
+        Execute an SQL INSERT command to insert data into a specified table in the database.
+
+        Args:
+            table_name (str): The name of the table where data will be inserted.
+            data (dict): A dictionary containing column names as keys and their corresponding values.
+
+        Raises:
+            sqlite3.IntegrityError: If an integrity constraint violation occurs during the insertion.
+                This can happen if there are duplicate entries that violate a UNIQUE constraint.
+
+        """
         try:
             sql_command = generate_insert_sql(table_name, data)
             self.cursor.execute(sql_command, tuple(data.values()))
@@ -202,13 +249,23 @@ class DataPublisher:
                 print(f'WARNING: Duplicate data detected while INSERT into {table_name}. Skipping.')
                 print(f'{data}')
                 return
-            print(f'ERROR: Unable to execute sql command: {sql_command}')
+            print(f'ERROR: Unable to execute SQL command: {sql_command}')
             print(e)
             print(traceback.format_exc())
             raise
 
-def generate_insert_sql(table_name, data_dict):
-    # Create the INSERT INTO part of the SQL statement
+
+def generate_insert_sql(table_name: str, data_dict: dict) -> str:
+    """
+    Generate the SQL INSERT statement for inserting data into a table.
+
+    Args:
+        table_name (str): The name of the table.
+        data_dict (dict): A dictionary containing column names as keys and their corresponding values.
+
+    Returns:
+        str: The SQL INSERT statement.
+    """
     columns = ', '.join(data_dict.keys())
     placeholders = ', '.join(['?'] * len(data_dict))
     insert_sql = f"INSERT INTO {table_name} ({columns}) VALUES ({placeholders})"
@@ -217,9 +274,14 @@ def generate_insert_sql(table_name, data_dict):
 def get_years(full_history: bool) -> list:
     """
     Generate a list of years to get data about players for.
-    It starts at 2019 due to the fact that current API does not support earlier years.
+    It starts at 2019 due to the fact that the current API does not support earlier years.
+
+    Args:
+        full_history (bool): Flag indicating whether to retrieve data for the full history or not.
+
+    Returns:
+        list: A list of years to retrieve data for.
     """
-    # TODO dynamicaly get data from the DB and workout what years needs to be requested
     if full_history:
         init_year = 2019
     else:
@@ -227,8 +289,8 @@ def get_years(full_history: bool) -> list:
     current_year = date.today().year
     current_month = date.today().month
 
-    # next year season is generated by espn somewhere in August
-    # predictions for the next season are generated by espn somewhere at the end of August - early September.
+    # next year's season is generated by ESPN somewhere in August
+    # predictions for the next season are generated by ESPN somewhere at the end of August - early September.
     # hence the range offset, otherwise if run during Jan - July
     # it would try to request data for the year that does not exist
     offset = 2
@@ -236,19 +298,20 @@ def get_years(full_history: bool) -> list:
         offset = 1
 
     ret = list(range(init_year, current_year+offset))
-    # need to reverse the range, as current year is used as 'init' for the data schema
-    # and uses players map from a current year
-    ret.reverse()
     return ret
 
-
-
+def set_cd_to_root():
+    """
+    Set the current working directory to the root of the project.
+    """
+    cwd = getcwd()
+    if cwd.endswith('src'):
+        chdir('..')
 
 def main(league_id, full_history):
-    # years = get_years(full_history)
-    years = [2021, 2022, 2023, 2024]
-    # years = [2021]
-    # years = [2024]
+    set_cd_to_root()
+    years = get_years(full_history)
+    print(f'Getting data for the following years: {years}')
     for year in years:
         print(f'=' * 120)
         print(f'Updating data for year: {year}')
@@ -259,14 +322,14 @@ def main(league_id, full_history):
             publisher.get_draft()
             publisher.publish_draft_years_data()
             publisher.publish_players_draft_data()
-            # publisher.set_active_players()
+            
             pass
         except espn_api.requests.espn_requests.ESPNInvalidLeague as ex:
             print(f'Error, unable to find league data for the year: {year}. Either league id is invalid, or data for this year is not available yet. \n')
             print(ex)
             continue
         except espn_api.requests.espn_requests.ESPNAccessDenied as ex:
-            print(f'Error, authentication failed. Either user does not have access to the specified year {year},\nor auth.json file needs to be updated with correct values. \n')
+            print(f'Error, authentication failed. Either the user does not have access to the specified year {year},\nor auth.json file needs to be updated with correct values. \n')
             print(ex)
             continue
         except Exception as ex:
@@ -274,7 +337,10 @@ def main(league_id, full_history):
             print(traceback.format_exc())
             exit(-1)
         finally:
-            del publisher
+            try:
+                del publisher
+            except UnboundLocalError:
+                pass
 
 if __name__ == '__main__':
     args = get_args()
