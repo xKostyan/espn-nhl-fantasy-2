@@ -29,9 +29,39 @@ def option_two():
     for i, league in enumerate(leagues):
         print(f"{i+1}. {league}")
     choice = input("\n:")
-    get_players_draft_data.main(leagues[int(choice)-1], False)
-    print("\nDone.")
+    league_interactions_menu(leagues[int(choice)-1])
+    # get_players_draft_data.main(leagues[int(choice)-1], False)
+    # print("\nDone.")
     exit(0)
+
+def league_interactions_menu(league_id):
+    # 1. update selected league data
+    # 2. refresh leagues authentication
+    # 3. players prices adjustment
+    # 4. quit
+    print("\nSelect an option:")
+    print("1. Update selected league data")
+    print("2. Refresh leagues authentication")
+    print("3. Players prices adjustment")
+    print("4. Quit")
+    choice = input("\n:")
+    match choice:
+        case '1':
+            get_players_draft_data.main(league_id, False)
+        case '2':
+            auth = dir()
+            auth = init_league.get_league_auth(league_id)
+            init_league.save_league_auth(auth)
+            league_interactions_menu(league_id)
+        case '3':
+            print("Not implemented yet.")
+        case '4':
+            print("Goodbye!")
+            exit(0)
+        case _:
+            print("Invalid choice. Try again.")
+            league_interactions_menu(league_id)
+
 
 def get_existing_leagues():
     """
@@ -60,7 +90,7 @@ def main():
     while True:
         print("\nSelect an option:")
         print("1. Init a new league")
-        print("2. Update existing league")
+        print("2. Interact with existing league")
         print("3. Quit")
 
         choice = input("Enter your choice (1/2/3): ")

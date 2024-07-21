@@ -142,17 +142,20 @@ class DataPublisher:
                 if result[0] == 0:
                     self.cursor.execute(f'INSERT INTO players (id, name, active, position_type, position) VALUES ({player.playerId}, "{player.name}", 1,"{position_type}", "{position_letter}")')
                     self.conn.commit() 
-                for key in [f'Total', 'Projected']:
+                for stat_type in [f'Total', 'Projected']:
                     try:
-                        stats = player.stats[f'{key} {self.year}']['total']
+                        stats = player.stats[f'{stat_type} {self.year}']['total']
                     except KeyError:
                         continue
                     try:
-                        transformed_stats = {schemas.espn_to_sqlite_names[key]: value for key, value in stats.items()}
+                        # TODO fix
+                        # transformed_stats = {schemas.espn_to_sqlite_names[key]: value for key, value in stats.items()}
+                        for key, value in stats.items():
+                            transformed_stats[schemas.espn_to_sqlite_names[key]] = value
                     except Exception as e:
-                        print('ERROR: Unable to map API stat name to the database column name.')
-                        print(f'{player.playerId} - {player.name} - {key} - {self.year}')
                         print(e)
+                        print('ERROR: Unable to map API stat name to the database column name.')
+                        print(f'{player.playerId} - {player.name} - {key}={value} - {stat_type} {self.year}')
                         continue
                     transformed_stats['id'] = player.playerId
                     transformed_stats['year'] = self.year

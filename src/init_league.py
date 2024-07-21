@@ -51,7 +51,6 @@ def input_detect(_prompt):
     finally:
         return val    
 
-
 def get_inputs():
     league = dict()
     league['league_name'] = input('League name: ')
@@ -61,10 +60,7 @@ def get_inputs():
     print('Enter league credentials.')
     print('espn_s2 and swid are used to authenticate with ESPN API. Access these values by logging into espn league, then "inspect page", ')
     print('Application tab -> Storage -> Cookies -> "http://fantasy.espn.com". Find required values in the list. and paste them below.')
-    league['auth'] = dict()
-    league['auth']['espn_s2'] = input('espn_s2: ')
-    league['auth']['swid'] = input('swid: ')
-    print()
+    league['auth'] = get_league_auth(league['league_id'])
     league['scoring'] = dict()
     print('Enter league scoring for each category.')
     print('If a category is not used, enter 0 or leave it empty.')
@@ -82,7 +78,6 @@ def get_inputs():
 
     return league
 
-
 def update_league_scoring(league):
     conn = sqlite3.connect(f'espn-data/{league["league_id"]}/league.db')
     cursor = conn.cursor()
@@ -91,21 +86,29 @@ def update_league_scoring(league):
     conn.commit()
     conn.close()
 
-def save_league_auth(league):
+def get_league_auth(league_id):
+    auth = dict()
+    print('espn_s2 and swid are used to authenticate with ESPN API. Access these values by logging into espn league, then "inspect page", ')
+    print('Application tab -> Storage -> Cookies -> "http://fantasy.espn.com". Find required values in the list. and paste them below.')
+    auth = dict()
+    auth['league_id'] = league_id
+    auth['espn_s2'] = input('espn_s2: ')
+    auth['swid'] = input('swid: ')
+    print()
+    return auth
+
+def save_league_auth(auth):
     try:
-        makedirs(f'espn-data/{league["league_id"]}')
+        makedirs(f'espn-data/{auth["league_id"]}')
     except FileExistsError:
         pass
-    auth = league['auth']
-    auth['league_name'] = league['league_name']
-    auth['league_id'] = league['league_id']
-    with open(f'espn-data/{league["league_id"]}/auth.json', 'w') as f:
+    with open(f'espn-data/{auth["league_id"]}/auth.json', 'w') as f:
         json.dump(auth, f, indent=2)
 
 def main():
     set_cd_to_root()
     data = get_inputs()
-    save_league_auth(data)
+    save_league_auth(data['auth'])
     init_db(data['league_id'])
     update_league_scoring(data)
     return data['league_id']
