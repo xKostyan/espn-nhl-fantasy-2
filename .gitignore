@@ -36,3 +36,7 @@ venv.bak/
 
 # App data
 espn-data/
+
+# prototyping
+*ignoreme*
+*tester*
