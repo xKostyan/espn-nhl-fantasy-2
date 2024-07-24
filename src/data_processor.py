@@ -1,7 +1,7 @@
 import os
 
 
-def get_existing_leagues():
+def get_existing_leagues() -> list:
     """
     Get a list of existing leagues.
     """

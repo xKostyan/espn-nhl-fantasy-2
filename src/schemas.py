@@ -1,12 +1,35 @@
+# TODO - add all possible values to this list, currently only contains values that are in my league
+# TODO - rework players point calculation based on stats, as year to year new columsn get added but db is strict
+espn_points_stats_names = {
+    "G": "3",
+    "A": "2",
+    "PIM": "0.5",
+    "PPG": "1",
+    "PPA": "0.5",
+    "SHG": "2",
+    "SHA": "1",
+    "GWG": "1",
+    "HAT": "3",
+    "SOG": "0.25",
+    "HIT": "0.1",
+    "BLK": "0.5",
+    "DEF": "1",
+    "W": "5",
+    "L": "-1",
+    "GA": "-1",
+    "SV": "0.25",
+    "SO": "3",
+    "OTL": "2"
+}
+
 # this maps API value to sqlite table column name
-# as well this chema is used to create 'scoring' table as this lists all statistics tracked for players
 espn_to_sqlite_names = {
     "G": "G",
     "A": "A",
     "PIM": "PIM",
     "PPG": "PPG",
     "PPA": "PPA",
-    "19": "PPA",
+    "19": "19",
     "SHG": "SHG",
     "SHA": "SHA",
     "PPP": "PPP",
@@ -127,7 +150,7 @@ sqlite_players_draft = {
     "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
 }
 
-sqlite_draft_years = {
+sqlite_draft_years_table = {
     "year": "INTEGER PRIMARY KEY",
     "draft_cap": "INTEGER"
 }
@@ -138,7 +161,9 @@ sqlite_forwards_stats_table = {
     "stats_type": "TEXT",
     "PRIMARY KEY": "(id, year, stats_type)",
     "FOREIGN KEY (id)": "REFERENCES players(id)",
-    "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
+    "FOREIGN KEY (year)": "REFERENCES draft_years(year)",
+    "FOREIGN KEY (year)": "REFERENCES years_tracking(year)",
+    "FOREIGN KEY (stats_type)": "REFERENCES years_tracking(stats_type)"
 }
 
 sqlite_defencemen_stats_table = {
@@ -147,7 +172,9 @@ sqlite_defencemen_stats_table = {
     "stats_type": "TEXT",
     "PRIMARY KEY": "(id, year, stats_type)",
     "FOREIGN KEY (id)": "REFERENCES players(id)",
-    "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
+    "FOREIGN KEY (year)": "REFERENCES draft_years(year)",
+    "FOREIGN KEY (year)": "REFERENCES years_tracking(year)",
+    "FOREIGN KEY (stats_type)": "REFERENCES years_tracking(stats_type)"
 }
 
 sqlite_goalies_stats_table = {
@@ -156,11 +183,14 @@ sqlite_goalies_stats_table = {
     "stats_type": "TEXT",
     "PRIMARY KEY": "(id, year, stats_type)",
     "FOREIGN KEY (id)": "REFERENCES players(id)",
-    "FOREIGN KEY (year)": "REFERENCES draft_years(year)"
+    "FOREIGN KEY (year)": "REFERENCES draft_years(year)",
+    "FOREIGN KEY (year)": "REFERENCES years_tracking(year)",
+    "FOREIGN KEY (stats_type)": "REFERENCES years_tracking(stats_type)"
 }
 
 # defines years tracking table schema for the sqlite database
 sqlite_years_tracking_table = {
     "year": "INTEGER",
-    "data_type": "TEXT"
+    "stats_type": "TEXT",
+    "PRIMARY KEY": "(year, stats_type)"
 }

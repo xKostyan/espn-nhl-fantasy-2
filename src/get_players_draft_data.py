@@ -128,6 +128,7 @@ class DataPublisher:
         # add players data to the players stats table based on position
         print(f'-' * 80)
         print(f'Publishing players data for year: {self.year} ...')
+        stat_types_to_publish_into_years_tracking = list()
         for player in self.fa:
             try:
                 stats = dict()
@@ -142,14 +143,14 @@ class DataPublisher:
                 if result[0] == 0:
                     self.cursor.execute(f'INSERT INTO players (id, name, active, position_type, position) VALUES ({player.playerId}, "{player.name}", 1,"{position_type}", "{position_letter}")')
                     self.conn.commit() 
-                for stat_type in [f'Total', 'Projected']:
+                for stat_type in ['Total', 'Projected']:
                     try:
                         stats = player.stats[f'{stat_type} {self.year}']['total']
+                        if stat_type not in stat_types_to_publish_into_years_tracking:
+                            stat_types_to_publish_into_years_tracking.append(stat_type())
                     except KeyError:
                         continue
                     try:
-                        # TODO fix
-                        # transformed_stats = {schemas.espn_to_sqlite_names[key]: value for key, value in stats.items()}
                         for key, value in stats.items():
                             transformed_stats[schemas.espn_to_sqlite_names[key]] = value
                     except Exception as e:
@@ -159,7 +160,7 @@ class DataPublisher:
                         continue
                     transformed_stats['id'] = player.playerId
                     transformed_stats['year'] = self.year
-                    transformed_stats['stats_type'] = key.lower()
+                    transformed_stats['stats_type'] = stat_type.lower()
                     
                     # make sure columns are the same in the table and in the data
                     src_columns = set(sorted(transformed_stats.keys()))
@@ -182,11 +183,19 @@ class DataPublisher:
 
                     self.sql_commit_insert_into_db(position_stat_table_name, transformed_stats)
 
+
+
             except Exception as e:
                 print("UNHANDLED EXCEPTION while trying to publish players data.")
                 print(e)
                 print(traceback.format_exc())
                 pass
+        for stat_type in stat_types_to_publish_into_years_tracking:
+            tmp = {
+                "year": self.year,
+                "stats_type": stat_type.lower()
+            }
+            self.sql_commit_insert_into_db('years_tracking', tmp)
         pass
 
     def publish_draft_years_data(self):
