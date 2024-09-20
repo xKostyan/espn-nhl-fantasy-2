@@ -147,7 +147,7 @@ class DataPublisher:
                     try:
                         stats = player.stats[f'{stat_type} {self.year}']['total']
                         if stat_type not in stat_types_to_publish_into_years_tracking:
-                            stat_types_to_publish_into_years_tracking.append(stat_type())
+                            stat_types_to_publish_into_years_tracking.append(stat_type)
                     except KeyError:
                         continue
                     try:
