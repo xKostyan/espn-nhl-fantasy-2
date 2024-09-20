@@ -14,12 +14,12 @@ espn_points_stats_names = {
     "HIT": "0.1",
     "BLK": "0.5",
     "DEF": "1",
-    "W": "5",
+    "W": "6",
     "L": "-1",
     "GA": "-1",
-    "SV": "0.25",
-    "SO": "3",
-    "OTL": "2"
+    "SV": "0.3",
+    "SO": "4",
+    "OTL": "3"
 }
 
 # this maps API value to sqlite table column name
