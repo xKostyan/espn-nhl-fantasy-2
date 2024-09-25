@@ -6,13 +6,21 @@ import sqlite3
 # class need to have league_id, year as inputs to connect to a specific league db and year is used to format output data
 # at the end need to have 3 spread sheets: forwards, defensemen, goalies
 
-class PlayersStatsTablesGenerator:
+class PlayersStatsTableDataGenerator:
     def __init__(self, league_id, year):
         self.current_year = year
         self.conn = sqlite3.connect(f'espn-data/{league_id}/league.db')
         self.conn.row_factory = sqlite3.Row
         self.cursor = self.conn.cursor()
         self.years_to_use = []
+
+        self.get_table_headers()
+        self.get_scoring()
+        self.get_tracked_years()
+        self.get_players()
+        self.get_full_data()
+
+        self.close_connection()
 
     def get_tracked_years(self):
         """
@@ -182,15 +190,6 @@ class PlayersStatsTablesGenerator:
         tmp_dict['FP_AVG'] = fp_avg
         return tmp_dict
 
-    def power_bi_friendly_output(self):
-        self.power_bi_forwards_vs_data = []
-        self.power_bi_defencemen_vs_data = []
-        self.power_bi_goalies_vs_data = []
-        # TODO generate column headers
-        # TODO fill in the data 1 row per player as all of the data combines into single row
-        pass
-
-
     def close_connection(self):
         # Close the connection
         self.conn.close()
@@ -198,3 +197,5 @@ class PlayersStatsTablesGenerator:
     def __del__(self):
         # Close the connection when the object is deleted
         self.close_connection()
+
+
