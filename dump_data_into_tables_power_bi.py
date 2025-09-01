@@ -29,8 +29,20 @@ class DataPBIExporter:
         self.goalies_stats_column_names = data_obj.tables_headers['goalies_stats']
         self.goalies_stats_column_names.append('FP')
         self.goalies_stats_column_names.append('FP_AVG')
+        
+        # proj_vs_act_FP - Fantasy Points
+        # proj_vs_act_FP_AVG - Average Fantasy Points
+        # proj_vs_act_ATOI - Average Time on Ice
+        # proj_vs_act_STP - Special Teams Points
+        # proj_vs_act_GP - Games Played
+        # proj_vs_act_PROD - Points Per 60min
+        # proj_vs_act_SHPERC - Shooting Percentage
 
-        self.skater_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_ATOI', 'proj_vs_act_STP', 'proj_vs_act_GP', 'proj_vs_act_PROD']
+        # proj_vs_act_GS - Games Started
+        # proj_vs_act_W - Wins
+        # proj_vs_act_GAA - Goals Against Average
+        # proj_vs_act_SVP - Save Percentage
+        self.skater_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_ATOI', 'proj_vs_act_STP', 'proj_vs_act_GP', 'proj_vs_act_PROD', 'proj_vs_act_SHPERC']
         self.goalie_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_GS', 'proj_vs_act_W', 'proj_vs_act_GAA', 'proj_vs_act_SVP']
         
 
@@ -84,8 +96,8 @@ class DataPBIExporter:
         forwards_full_stats = list()
         defencemen_full_stats = list()
         goalies_full_stats = list()
-        # self.skater_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_ATOI', proj_vs_act_STP, proj_vs_act_GP, proj_vs_act_PROD]
-        # self.goalie_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_GS', proj_vs_act_W, proj_vs_act_GAA, proj_vs_act_SV%]
+        # self.skater_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_ATOI', 'proj_vs_act_STP', 'proj_vs_act_GP', ' proj_vs_act_PROD', 'proj_vs_act_SHPERC']
+        # self.goalie_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_GS', 'proj_vs_act_W', 'proj_vs_act_GAA', 'proj_vs_act_SVP']
         for player in self.formatted_players_data:
             active_flag = self.is_player_active(player)
             if active_flag:
@@ -170,6 +182,17 @@ class DataPBIExporter:
                     except (TypeError, ZeroDivisionError):
                         actual_prod = ''
                     summary_row.append(f'{projected_prod} | {actual_prod}')
+
+                    # proj_vs_act_SHPERC - Shooting Percentage
+                    try:
+                        projected_shperc = round(player['stats'][year]['projected']['G'] / player['stats'][year]['projected']['SOG'] * 100, 2)
+                    except (TypeError, ZeroDivisionError):
+                        projected_shperc = ''
+                    try:
+                        actual_shperc = round(player['stats'][year]['actual']['G'] / player['stats'][year]['actual']['SOG'] * 100, 2)
+                    except (TypeError, ZeroDivisionError):
+                        actual_shperc = ''
+                    summary_row.append(f'{projected_shperc} | {actual_shperc}')
 
                 else:
                     try:
