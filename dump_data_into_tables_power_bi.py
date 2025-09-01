@@ -389,5 +389,5 @@ def main(league_id, year):
 
 if __name__ == '__main__':
     league_id = 41610
-    year = 2025
+    year = 2026
     main(league_id, year)  
