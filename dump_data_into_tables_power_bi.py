@@ -3,6 +3,7 @@ import csv
 from src import player_stats_to_tables_converter as player_stats_to_tables_converter
 import os
 import shutil
+import copy
 
 class DataPBIExporter:
     def __init__(self, league_id, year):
@@ -64,7 +65,154 @@ class DataPBIExporter:
         os.makedirs(dumps)
         return dumps
     
-    def dump_stats_data(self):
+    def dump_stats_data_excel(self):
+        """
+        Dumps player statistics data into CSV files formatted for Excel.
+        This method processes formatted player data, categorizes it by player position 
+        (forwards, defencemen, goalies), and writes summary statistics to CSV files.
+        For each player and year, the method collects relevant stats and organizes them
+        into rows suitable for Excel analysis. The output includes separate CSV files for
+        forwards, defencemen, and goalies, each containing columns for player ID, name,
+        and yearly statistics.
+        Raises:
+            Exception: If there is an error during data processing or writing to CSV.
+        """
+        # Define which stats to include for skaters and goalies in Excel output
+        self.excel_data_keys_skater = ['GP', 'G', 'A', 'PTS', 'SOG', 'HIT', 'BLK', 'PIM', 'ATOI', 'FP', 'FP_AVG']
+        self.excel_data_keys_goalie = ['GS', 'W', 'GAA', 'SVP', 'SO', 'FP', 'FP_AVG']
+        data_type = str
+
+        # Templates for player data rows
+        skater_player_obj_template = dict()
+        goalie_player_obj_template = dict()
+        
+        # Initialize column headers for each position
+        forwards_columns = ['id', 'name']
+        defencemen_columns = ['id', 'name']
+        goalies_columns = ['id', 'name']
+
+        # Lists to hold all player data rows for each position
+        forwards_full_data = list()
+        defencemen_full_data = list()
+        goalies_full_data = list()
+        
+        # Add year-specific columns for each stat
+        for key in self.excel_data_keys_skater:
+            for year in self.data_years:
+                forwards_columns.append(f'{key}_{year}')
+                defencemen_columns.append(f'{key}_{year}')
+        for key in self.excel_data_keys_goalie:
+            for year in self.data_years:
+                goalies_columns.append(f'{key}_{year}')
+
+        # Initialize stat lists in player templates
+        for key in self.excel_data_keys_skater:
+            skater_player_obj_template[key] = list()
+        for key in self.excel_data_keys_goalie:
+            goalie_player_obj_template[key] = list()
+        
+        # Add a 'data_row' key to hold the final row for each player
+        skater_player_obj_template['data_row'] = list()
+        goalie_player_obj_template['data_row'] = list()
+
+        # Iterate through all players in formatted data
+        for player in self.formatted_players_data:
+            # Choose template based on position
+            if player['position'] != 'G':
+                player_obj = copy.deepcopy(skater_player_obj_template)
+            else:
+                player_obj = copy.deepcopy(goalie_player_obj_template)
+            
+            # Skip inactive players
+            if not self.is_player_active(player):
+                continue
+
+            # Iterate through each year of stats for the player
+            for year in player['stats']:
+                # Determine if stats are projected or actual for the year
+                if year == self.year:
+                    data_type = 'projected'
+                else:
+                    data_type = 'actual'
+            
+                # Collect skater stats for each year
+                if player['position'] != 'G':
+                    for key in self.excel_data_keys_skater:
+                        if key == 'ATOI':
+                            # Convert ATOI to minutes and round
+                            try:
+                                player_obj[key].append(round(player['stats'][year][data_type][key]/60, 2))
+                            except (KeyError, TypeError):
+                                player_obj[key].append('')
+                            continue
+
+                        if key == 'FP_AVG':
+                            # Round FP_AVG
+                            try:
+                                player_obj[key].append(round(player['stats'][year][data_type][key], 2))
+                            except (KeyError, TypeError):
+                                player_obj[key].append('')
+                            continue
+                        
+                        # Add integer stats, or empty string if missing
+                        try:
+                            player_obj[key].append(int(player['stats'][year][data_type][key]))
+                        except (KeyError, TypeError):
+                            player_obj[key].append('')
+                else:
+                    # Collect goalie stats for each year
+                    for key in self.excel_data_keys_goalie:
+                        if key == 'GAA':
+                            # Round GAA
+                            try:
+                                player_obj[key].append(round(player['stats'][year][data_type][key], 2))
+                            except (KeyError, TypeError):
+                                player_obj[key].append('')
+                            continue
+                        
+                        if key == 'SVP':
+                            # Round SVP to three decimals
+                            try:
+                                player_obj[key].append(round(player['stats'][year][data_type][key], 3))
+                            except (KeyError, TypeError):
+                                player_obj[key].append('')
+                            continue
+                        
+                        if key == 'FP_AVG':
+                            # Round FP_AVG
+                            try:
+                                player_obj[key].append(round(player['stats'][year][data_type][key], 2))
+                            except (KeyError, TypeError):
+                                player_obj[key].append('')
+                            continue
+
+                        # Add integer stats, or empty string if missing
+                        try:
+                            player_obj[key].append(int(player['stats'][year][data_type][key]))
+                        except (KeyError, TypeError):
+                            player_obj[key].append('')
+
+            # Build the final data row for the player
+            player_obj['data_row'] = list([player['id'], player['name']])
+            for key in player_obj:
+                if key != 'data_row':
+                    player_obj['data_row'].extend(player_obj[key])
+            
+            # Append the row to the correct position list
+            match player['position']:
+                case 'F':
+                    forwards_full_data.append(player_obj['data_row'])
+                case 'D':
+                    defencemen_full_data.append(player_obj['data_row'])
+                case 'G':
+                    goalies_full_data.append(player_obj['data_row'])
+
+        # Write the collected data to CSV files for each position
+        self.csv_writer(f'{self.csv_out_dir}/f_summary_excel.csv', forwards_columns, forwards_full_data)
+        self.csv_writer(f'{self.csv_out_dir}/d_summary_excel.csv', defencemen_columns, defencemen_full_data)
+        self.csv_writer(f'{self.csv_out_dir}/g_summary_excel.csv', goalies_columns, goalies_full_data)
+
+    def dump_stats_data_pbi(self):
         """
         Dumps player statistics data into CSV files for use in Power BI.
         This method processes formatted player data, categorizes it by player position 
@@ -96,9 +244,11 @@ class DataPBIExporter:
         forwards_full_stats = list()
         defencemen_full_stats = list()
         goalies_full_stats = list()
-        # self.skater_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_ATOI', 'proj_vs_act_STP', 'proj_vs_act_GP', ' proj_vs_act_PROD', 'proj_vs_act_SHPERC']
-        # self.goalie_summary_column_names = ['id', 'name', 'year', 'proj_vs_act_FP', 'proj_vs_act_FP_AVG', 'proj_vs_act_GS', 'proj_vs_act_W', 'proj_vs_act_GAA', 'proj_vs_act_SVP']
+
         for player in self.formatted_players_data:
+            player_excel_obj = dict()
+            player_excel_obj['data_row'] = list([player['id'], player['name']])
+            
             active_flag = self.is_player_active(player)
             if active_flag:
                 player_row = list([player[self.players_column_names[0]], player[self.players_column_names[1]], player[self.players_column_names[2]], ''])
@@ -256,9 +406,9 @@ class DataPBIExporter:
         # dump data into csv files
         self.csv_writer(f'{self.csv_out_dir}/players.csv', self.players_column_names, players)
 
-        self.csv_writer(f'{self.csv_out_dir}/f_summary.csv', self.skater_summary_column_names, forwards_summary)
-        self.csv_writer(f'{self.csv_out_dir}/d_summary.csv', self.skater_summary_column_names, defencemen_summary)
-        self.csv_writer(f'{self.csv_out_dir}/g_summary.csv', self.goalie_summary_column_names, goalies_summary)
+        self.csv_writer(f'{self.csv_out_dir}/f_summary_pbi.csv', self.skater_summary_column_names, forwards_summary)
+        self.csv_writer(f'{self.csv_out_dir}/d_summary_pbi.csv', self.skater_summary_column_names, defencemen_summary)
+        self.csv_writer(f'{self.csv_out_dir}/g_summary_pbi.csv', self.goalie_summary_column_names, goalies_summary)
 
         self.csv_writer(f'{self.csv_out_dir}/f_stats.csv', self.forwards_stats_column_names, forwards_full_stats)
         self.csv_writer(f'{self.csv_out_dir}/d_stats.csv', self.defencemen_stats_column_names, defencemen_full_stats)
@@ -399,7 +549,6 @@ class DataPBIExporter:
         self.close_connection()
 
 
-
 def main(league_id, year):
     # dump data into tables for Power BI
     # target is t output following tables
@@ -407,10 +556,10 @@ def main(league_id, year):
     # combined data for multiline sparkle charts: f_summary, d_summary, g_summary
 
     exporter_obj = DataPBIExporter(league_id, year)
-    exporter_obj.dump_stats_data()
+    exporter_obj.dump_stats_data_pbi()
+    exporter_obj.dump_stats_data_excel()
  
-
 if __name__ == '__main__':
     league_id = 41610
     year = 2026
-    main(league_id, year)  
+    main(league_id, year)
