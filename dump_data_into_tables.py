@@ -5,7 +5,7 @@ import os
 import shutil
 import copy
 
-class DataPBIExporter:
+class DataExporter:
     def __init__(self, league_id, year):
         self.league_id = league_id
         self.year = year
@@ -87,9 +87,9 @@ class DataPBIExporter:
         goalie_player_obj_template = dict()
         
         # Initialize column headers for each position
-        forwards_columns = ['id', 'name']
-        defencemen_columns = ['id', 'name']
-        goalies_columns = ['id', 'name']
+        forwards_columns = ['id', 'name', 'picked']
+        defencemen_columns = ['id', 'name', 'picked']
+        goalies_columns = ['id', 'name', 'picked']
 
         # Lists to hold all player data rows for each position
         forwards_full_data = list()
@@ -101,9 +101,14 @@ class DataPBIExporter:
             for year in self.data_years:
                 forwards_columns.append(f'{key}_{year}')
                 defencemen_columns.append(f'{key}_{year}')
+            # add placeholder column for sparkline
+            forwards_columns.append(f'{key}_spark')
+            defencemen_columns.append(f'{key}_spark')
         for key in self.excel_data_keys_goalie:
             for year in self.data_years:
                 goalies_columns.append(f'{key}_{year}')
+            # add placeholder column for sparkline
+            goalies_columns.append(f'{key}_spark')
 
         # Initialize stat lists in player templates
         for key in self.excel_data_keys_skater:
@@ -193,11 +198,12 @@ class DataPBIExporter:
                             player_obj[key].append('')
 
             # Build the final data row for the player
-            player_obj['data_row'] = list([player['id'], player['name']])
+            player_obj['data_row'] = list([player['id'], player['name'], 0])  # '0' is a placeholder for 'picked' column
             for key in player_obj:
                 if key != 'data_row':
                     player_obj['data_row'].extend(player_obj[key])
-            
+                    player_obj['data_row'].append('')  # Placeholder for sparkline column
+
             # Append the row to the correct position list
             match player['position']:
                 case 'F':
@@ -555,11 +561,17 @@ def main(league_id, year):
     # following tables as csv files: players, forwards_stats, defencemen_stats, goalies_stats
     # combined data for multiline sparkle charts: f_summary, d_summary, g_summary
 
-    exporter_obj = DataPBIExporter(league_id, year)
+    exporter_obj = DataExporter(league_id, year)
     exporter_obj.dump_stats_data_pbi()
     exporter_obj.dump_stats_data_excel()
- 
+
+def parse_args():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-l", "--league_id", type=int, required=True, help="League ID (league.db file is expected to be in 'espn-data/<league_id>')")
+    parser.add_argument("-y", "--year", type=int, required=True, help="Year for projected stats")
+    return parser.parse_args()
+
 if __name__ == '__main__':
-    league_id = 41610
-    year = 2026
-    main(league_id, year)
+    args = parse_args()
+    main(args.league_id, args.year)
