@@ -78,8 +78,8 @@ class DataExporter:
             Exception: If there is an error during data processing or writing to CSV.
         """
         # Define which stats to include for skaters and goalies in Excel output
-        self.excel_data_keys_skater = ['GP', 'G', 'A', 'PTS', 'SOG', 'HIT', 'BLK', 'PIM', 'ATOI', 'FP', 'FP_AVG']
-        self.excel_data_keys_goalie = ['GS', 'W', 'GAA', 'SVP', 'SO', 'FP', 'FP_AVG']
+        self.excel_data_keys_skater = ['FP', 'FP_AVG', 'G', 'A', 'PTS', 'SOG', 'HIT', 'BLK', 'PIM', 'ATOI', 'GP']
+        self.excel_data_keys_goalie = ['FP', 'FP_AVG', 'GS', 'W', 'GAA', 'SVP', 'SO']
         data_type = str
 
         # Templates for player data rows
@@ -198,7 +198,7 @@ class DataExporter:
                             player_obj[key].append('')
 
             # Build the final data row for the player
-            player_obj['data_row'] = list([player['id'], player['name'], 0])  # '0' is a placeholder for 'picked' column
+            player_obj['data_row'] = list([player['id'], player['name'], 'FALSE'])  # 'FALSE' is a placeholder for 'picked' column
             for key in player_obj:
                 if key != 'data_row':
                     player_obj['data_row'].extend(player_obj[key])
