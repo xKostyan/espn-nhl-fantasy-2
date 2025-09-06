@@ -1,5 +1,7 @@
 from src import get_players_draft_data as get_players_draft_data
 from src import init_league as init_league
+# from src import player_stats_visualiser as player_stats_visualiser
+from src import data_processor as data_processor
 import os
 
 def option_one():
@@ -20,7 +22,7 @@ def option_two():
     Placeholder function for option two.
     """
     print()
-    leagues = get_existing_leagues()
+    leagues = data_processor.get_existing_leagues()
     if len(leagues) == 0:
         print("No existing leagues found.")
         return
@@ -42,8 +44,9 @@ def league_interactions_menu(league_id):
     print("\nSelect an option:")
     print("1. Update selected league data")
     print("2. Refresh leagues authentication")
-    print("3. Players prices adjustment")
-    print("4. Quit")
+    print("3. Player stats visualiser")
+    print("4. Players prices adjustment")
+    print("5. Quit")
     choice = input("\n:")
     match choice:
         case '1':
@@ -56,34 +59,13 @@ def league_interactions_menu(league_id):
         case '3':
             print("Not implemented yet.")
         case '4':
+            print("Not implemented yet.")
+        case '5':
             print("Goodbye!")
             exit(0)
         case _:
             print("Invalid choice. Try again.")
             league_interactions_menu(league_id)
-
-
-def get_existing_leagues():
-    """
-    Get a list of existing leagues.
-    """
-    folder_list = []
-    data_folder = 'espn-data'
-    try:
-        # List all items in the specified directory
-        items = os.listdir(data_folder)
-        
-        for item in items:
-            item_path = os.path.join(data_folder, item)
-            
-            # Check if the item is a directory
-            if os.path.isdir(item_path):
-                folder_list.append(item)
-
-    except OSError as e:
-        print(f"Error: {e}")
-
-    return folder_list
 
 
 def main():

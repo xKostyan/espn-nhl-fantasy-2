@@ -2,8 +2,11 @@ from src import schemas
 from os import getcwd, chdir
 import sqlite3
 import ast
-from os import makedirs
+from os import makedirs, path
+from shutil import rmtree
+
 import json
+
 
 def set_cd_to_root():
     """
@@ -18,7 +21,7 @@ def init_db(league_id):
     conn = sqlite3.connect(f'espn-data/{league_id}/league.db')
     cursor = conn.cursor()
 
-    scoring_table = {value: "REAL" for value in schemas.espn_to_sqlite_names.values()}
+    scoring_table = {key: "REAL" for key in schemas.espn_points_stats_names}
     cursor.execute(get_create_table_command('scoring', scoring_table))
     
     cursor.execute(get_create_table_command('players', schemas.sqlite_players_table))
@@ -26,7 +29,8 @@ def init_db(league_id):
     cursor.execute(get_create_table_command('forwards_stats', schemas.sqlite_forwards_stats_table))
     cursor.execute(get_create_table_command('defencemen_stats', schemas.sqlite_defencemen_stats_table))
     cursor.execute(get_create_table_command('goalies_stats', schemas.sqlite_goalies_stats_table))
-    cursor.execute(get_create_table_command('draft_years', schemas.sqlite_draft_years))
+    cursor.execute(get_create_table_command('draft_years', schemas.sqlite_draft_years_table))
+    cursor.execute(get_create_table_command('years_tracking', schemas.sqlite_years_tracking_table))
 
     conn.commit()
     conn.close()
@@ -58,8 +62,6 @@ def get_inputs():
     league['league_id'] = 41610
     print()
     print('Enter league credentials.')
-    print('espn_s2 and swid are used to authenticate with ESPN API. Access these values by logging into espn league, then "inspect page", ')
-    print('Application tab -> Storage -> Cookies -> "http://fantasy.espn.com". Find required values in the list. and paste them below.')
     league['auth'] = get_league_auth(league['league_id'])
     league['scoring'] = dict()
     print('Enter league scoring for each category.')
@@ -70,11 +72,9 @@ def get_inputs():
           'and PPP is a product of PPG and PPA so set PPP to 0 and PPG and PPA to values specific in your league.'
           'Meaning if ESPN league settings, Scoring section list does not have a category, set it to 0.')
 
-    for key, value in schemas.espn_to_sqlite_names.items():
-        try:
-            league['scoring'][value] = input_detect(f'{value:<5} {schemas.sqlite_column_descriptions[value]:<30}: ')
-        except KeyError:
-            league['scoring'][value] = input_detect(f'{value:<5} {"??? description missing":<30}: ')
+    for key, value in schemas.espn_points_stats_names.items():
+        user_input = input(f"Enter value for {key} (current: {value}): ")
+        league['scoring'][key] = user_input if user_input.strip() else value
 
     return league
 
@@ -105,9 +105,19 @@ def save_league_auth(auth):
     with open(f'espn-data/{auth["league_id"]}/auth.json', 'w') as f:
         json.dump(auth, f, indent=2)
 
+def delete_league(league_id):
+    path = f'espn-data/{league_id}'
+    try:
+        rmtree(path)
+        print(f"Folder '{path}' and all its contents have been deleted.")
+    except Exception as e:
+        pass
+    
+
 def main():
     set_cd_to_root()
     data = get_inputs()
+    delete_league(data['league_id'])
     save_league_auth(data['auth'])
     init_db(data['league_id'])
     update_league_scoring(data)
