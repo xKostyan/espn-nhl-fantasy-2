@@ -36,6 +36,10 @@ venv.bak/
 
 # App data
 espn-data/
+# Keep secrets and runtime DBs out of VCS
+espn-data/*/auth.json
+espn-data/*/league.db
+espn-data/*/dumps/
 
 # prototyping
 *ignoreme*
