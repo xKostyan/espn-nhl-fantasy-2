@@ -15,7 +15,7 @@ The script will place sparklines in the <stat_name>_spark columns, showing trend
 """
 
 class ExcelDraftTables:
-    def __init__(self, forward_csv_file: str, defense_csv_file: str, goalie_csv_file: str, output_file: str):
+    def __init__(self, forward_csv_file: str, defense_csv_file: str, goalie_csv_file: str, output_file: str, create_sparklines: bool):
         """
         Initialize the ExcelDraftTables object.
 
@@ -29,6 +29,7 @@ class ExcelDraftTables:
         self.defense_csv_file = defense_csv_file
         self.goalie_csv_file = goalie_csv_file
         self.output_file = output_file
+        self.create_sparklines = create_sparklines
 
     def execute(self):
         """
@@ -75,14 +76,15 @@ class ExcelDraftTables:
         nrows = len(df)
 
         # Add sparklines for each stat group using the spark column index
-        for stat_name, start_col, end_col, spark_col in stat_groups:
-            for row in range(2, nrows + 2):  # Excel is 1-based + header row
-                worksheet.add_sparkline(row - 1, spark_col, {
-                    "range": f"{worksheet.name}!{self._excel_col(start_col)}{row}:{self._excel_col(end_col)}{row}",
-                    "type": "line",
-                    "markers": False,
-                    "show_hidden": False  # Show sparkline even if data is hidden
-                })
+        if self.create_sparklines:
+            for stat_name, start_col, end_col, spark_col in stat_groups:
+                for row in range(2, nrows + 2):  # Excel is 1-based + header row
+                    worksheet.add_sparkline(row - 1, spark_col, {
+                        "range": f"{worksheet.name}!{self._excel_col(start_col)}{row}:{self._excel_col(end_col)}{row}",
+                        "type": "line",
+                        "markers": False,
+                        "show_hidden": False  # Show sparkline even if data is hidden
+                    })
 
     def _determine_stat_groups(self, df: pd.DataFrame):
         """
@@ -138,9 +140,10 @@ def parse_args():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("-l", "--league_id", type=str, required=True, help="League ID (_excel.csv files are expected to be in 'espn-data/<league_id>/dumps')")
+    parser.add_argument("--sparklines", action="store_true", help="If set, do not create sparklines in the Excel output")
     return parser.parse_args()
 
-def main(league_id: int):
+def main(league_id: int, create_sparklines: bool):
     """
     Main entry point for generating the Excel workbook.
 
@@ -153,9 +156,9 @@ def main(league_id: int):
     goalie_csv_file = f"{src_dir}/g_summary_excel.csv"
     output_file = f"{src_dir}/fantasy_output.xlsx"
 
-    tables = ExcelDraftTables(forward_csv_file, defense_csv_file, goalie_csv_file, output_file)
+    tables = ExcelDraftTables(forward_csv_file, defense_csv_file, goalie_csv_file, output_file, create_sparklines)
     tables.execute()
 
 if __name__ == "__main__":
     args = parse_args()
-    main(args.league_id)
+    main(args.league_id, args.sparklines)
