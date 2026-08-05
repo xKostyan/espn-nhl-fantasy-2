@@ -1,6 +1,6 @@
 # Draft Assistant — TODO
 
-Stack: Electron + React + SQLite (confirmed)
+Stack: 
 
 Purpose: Replace Excel workflow with a snappy multi-window desktop app for draft helper. Persist available/not-available flags and "my team" using SQLite. UI must be fast (virtualized tables, sparklines), multi-monitor (separate windows), and sortable by projected avg fantasy points.
 
@@ -36,9 +36,7 @@ TODO table:
 
 | id | task | status | notes |
 |---|---|---|---|
-| create-todo | Create this TODO.md and record choices | pending | created but not yet committed |
-| choose-ts | Choose TypeScript or JavaScript | pending | awaiting user decision |
-| scaffold-app | Scaffold Electron + React app with SQLite bridge | pending | once TS decision made |
+| create-todo | Create this TODO.md and record choices | pending |  |
 | screen1-table | Implement Screen 1 table UI with virtualization & sparklines | pending | single-tab first, then tabs |
 | search | Implement search-as-you-type and row centering | pending | keyboard + mouse selection |
 | screen2 | Implement Screen 2 player detail placeholder + "Add to my team" | pending | basic charts placeholder |
